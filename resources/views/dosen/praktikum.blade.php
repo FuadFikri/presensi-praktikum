@@ -5,7 +5,7 @@
 
             <div class="clearfix"></div>
                 <div class="row">
-    <a onclick="addPraktikum()">
+    <a onclick="addPertemuan()">
         <button class="btn btn-primary" type="button" style="float:right; margin-right:20px;"><i class="fa fa-plus"></i>  Pertemuan</button>
     </a>
 </div>
@@ -49,8 +49,9 @@
             </div>
           </div>
         </div>
+        @include('dosen/modal/add_pertemuan')
         <script type="text/javascript">
-            function edit_profil(){
+            function addPertemuan(){
                 $('#modal-form').modal('show');
             }
         </script>
