@@ -27,7 +27,7 @@
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                @include('templates/sidebar')
+                @include('asisten/sidebar')
             </div>
             <!-- /sidebar menu -->
           </div>
