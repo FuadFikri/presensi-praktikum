@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('asisten/dashboard');
+});
+
+Route::get('/asisten', function () {
+    return view('asisten/home');
+});
+Route::get('/asisten/profile', function () {
+    return view('asisten/profile');
 });
