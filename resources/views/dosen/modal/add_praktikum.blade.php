@@ -35,6 +35,17 @@
                             </select>
                          </div>
                     </div>
+                    <div class="form-group">
+                        <label for="dosen" class="col-md-3 control-label">Kelas</label>
+                         <div class="col-md-6">
+                            <select class="form-control" id="sel1">
+                                <option>A1</option>
+                                <option>A2</option>
+                                <option>B1</option>
+                                <option>B2</option>
+                            </select>
+                         </div>
+                    </div>
                 </div>
 
                 <div class="modal-footer">
