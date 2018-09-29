@@ -1,4 +1,4 @@
- @extends('asisten/dashboard')
+ @extends('dosen/dashboard')
  @section('konten')
 
 
@@ -11,22 +11,8 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Profil Asisten</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
+                    <h2>Profil Dosen</h2>
+
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -74,19 +60,15 @@
                     <table class="table table-striped">
                       <tbody>
                         <tr>
-                          <th scope="row">NIM</th>
+                          <th scope="row">NIP</th>
                           <td>18/8282/re/112</td>
                         </tr>
                         <tr>
                           <th scope="row">Nama</th>
                           <td>Jonwo</td>
                         </tr>
-                        <tr>
-                          <th scope="row">Kelas</th>
-                          <td>C</td>
-                        </tr>
                          <tr>
-                          <th scope="row">Angkatan</th>
+                          <th scope="row">Tanggal Lahir</th>
                           <td>2016</td>
                         </tr>
                          <tr>
@@ -101,7 +83,8 @@
                 </div>
               </div>
               {{-- END TABEL --}}
-               <a class="btn btn-success pull-right"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+              @include('dosen/modal/edit_profil')
+               <a class="btn btn-success pull-right" onclick="edit_profil()"><i class="fa fa-edit m-right-xs"></i>  Edit Profile</a>
                     </div>
                   </div>
                 </div>
@@ -109,4 +92,9 @@
             </div>
           </div>
         </div>
+        <script type="text/javascript">
+            function edit_profil(){
+                $('#modal-form').modal('show');
+            }
+        </script>
 @endsection

@@ -1,8 +1,8 @@
-@extends('asisten/dashboard')
+@extends('dosen/dashboard')
 @section('konten')
   <div class="right_col" role="main">
 <div class="row">
-    <a href="">
+    <a onclick="addPraktikum()">
         <button class="btn btn-primary" type="button" style="float:right;"><i class="fa fa-plus"></i>  Tambah Praktikum</button>
     </a>
 </div>
@@ -56,9 +56,16 @@
      </div>
 </div>
   </div>
+  @include('dosen/modal/add_praktikum')
 <style>
 h4{
     margin: 8px;
 }
 </style>
+<script type="text/javascript">
+    function addPraktikum() {
+        $('#modal-form').modal('show');
+
+    }
+</script>
 @endsection

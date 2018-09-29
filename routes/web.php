@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('asisten/dashboard');
+    return view('dosen/dashboard');
 });
 
-Route::get('/asisten', function () {
-    return view('asisten/home');
+Route::get('/dosen', function () {
+    return view('dosen/home');
 });
-Route::get('/asisten/profile', function () {
-    return view('asisten/profile');
+Route::get('/dosen/profile', function () {
+    return view('dosen/profile');
 });
