@@ -25,6 +25,7 @@
                           <th>Tanggal</th>
                           <th>Waktu mulai</th>
                           <th>Waktu selesai</th>
+                          <th>Ruang</th>
                           <th></th>
                         </tr>
                       </thead>
@@ -34,9 +35,17 @@
                           <td>27 September 2018</td>
                           <td>14.00</td>
                           <td>15.40</td>
+                          <td>Lab nganu</td>
                           <td><div class="x_content">
-                            <button type="button" class="btn btn-info">Info</button>
+                          <a href="{{url('dosen/presensi')}}">
+                            <button type="button" class="btn btn-success" >Presensi</button>
+                          </a>
+                          <a href="{{url('dosen/feedback')}}">
+                            <button type="button" class="btn btn-info">Feedback</button>
+                          </a>
+                          <a href="{{url('dosen/hapus')}}">
                             <button type="button" class="btn btn-danger">Hapus</button>
+                          </a>  
                             </div>
                           </td>
                         </tr>

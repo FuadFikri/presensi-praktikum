@@ -27,6 +27,12 @@ Route::get('/dosen/praktikum/id', function() {
 Route::get('/dosen/profile', function () {
     return view('dosen/profile');
 });
+Route::get('/dosen/presensi', function () {
+    return view('dosen/presensi');
+});
+Route::get('/dosen/feedback', function () {
+    return view('dosen/feedback');
+});
 
 
 
