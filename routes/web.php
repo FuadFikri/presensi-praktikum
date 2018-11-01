@@ -37,7 +37,14 @@ Route::get('/dosen/feedback', function () {
 
 
 // admin collections
-
+Route::prefix('admin')->group(function(){
+    Route::get('asprak','AdminController@index_asprak')->name('asprak.index');
+    Route::get('asprak/create','AdminController@create_asprak')->name('asprak.create');
+    Route::put('asprak/{asprak}','AdminController@update_asprak')->name('asprak.update');
+    Route::get('asprak/{asprak}','AdminController@show_asprak')->name('asprak.show');
+    Route::delete('asprak/{asprak}','AdminController@delete_asprak')->name('asprak.destroy');
+    Route::delete('asprak/{asprak}/edit','AdminController@edit_asprak')->name('asprak.edit');
+});
 
 
 
