@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Role;
 use Illuminate\Http\Request;
+use Alert;
 
 class AdminController extends Controller
 {
@@ -14,7 +15,8 @@ class AdminController extends Controller
      */
     public function index_asprak()
     {
-        return view('admin/asprak');
+        $aspraks = User::where('role_id',2)->get();
+        return view('admin/asprak',['aspraks'=>$aspraks]);
     }
 
     /**
@@ -50,6 +52,7 @@ class AdminController extends Controller
             'nim' =>$request->nim,
             'role_id' => 2
         ]);
+        Alert::success('Success Message', 'Optional Title');
         return redirect('admin/asprak');
     }
 
@@ -61,7 +64,8 @@ class AdminController extends Controller
      */
     public function show_asprak($id)
     {
-        //
+        $asprak = User::find($id);
+        return view('admin/detail_asprak',['asprak'=>$asprak]);
     }
 
     /**
@@ -75,26 +79,16 @@ class AdminController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update_asprak(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy_asprak($id)
+    public function delete_asprak($id)
     {
-        //
+        $asprak = User::find($id);
+        dd($asprak);
+        $asprak->destroy();
+        return redirect('admin/asprak');
     }
 }
