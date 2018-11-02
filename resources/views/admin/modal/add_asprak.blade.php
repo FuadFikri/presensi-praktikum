@@ -1,7 +1,7 @@
 <div class="modal" id="modal-form" tabindex="1" role="dialog" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="form-contact" method="post" class="form-horizontal" data-toggle="validator" enctype="multipart/form-data">
+        <form id="form-contact" method="post" class="form-horizontal" data-toggle="validator" action="{{route('asprak.store')}}">
                 {{ csrf_field() }} {{ method_field('POST') }}
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -26,15 +26,9 @@
                          </div>
                     </div>
                     <div class="form-group">
-                        <label for="username" class="col-md-3 control-label">Username</label>
+                        <label for="email" class="col-md-3 control-label">Email</label>
                          <div class="col-md-6">
-                             <input type="text" name="username" id="username" class="form-control" required>
-                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="col-md-3 control-label">Password</label>
-                         <div class="col-md-6">
-                             <input type="text" name="password" id="password" class="form-control" required>
+                             <input type="email" name="email" id="email" class="form-control" required>
                          </div>
                     </div>
                     <div class="form-group">
