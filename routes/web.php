@@ -61,3 +61,7 @@ Route::prefix('/admin')->group(function(){
 
 
 // asisten collections = dosen
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
