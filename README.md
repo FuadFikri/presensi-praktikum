@@ -9,7 +9,7 @@
 yang sudah
 1. halaman dosen
 2. halaman admin
-3. CRUD(baru create) di halaman admin untuk membuat akun asprak
+3. CRUD di halaman admin untuk membuat akun asprak
 
 localhost:8000/admin
 localhost:8000/dosen
