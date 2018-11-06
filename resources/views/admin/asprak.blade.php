@@ -26,9 +26,8 @@
                           <th>#</th>
                           <th>Nim</th>
                           <th>Nama</th>
+                          <th>Email</th>
                           <th></th>
-                          
-                          
                           
                         </tr>
                       </thead>
@@ -40,13 +39,17 @@
                           <tr>
                           <td>{{$i++}}</td>
                             <td>{{$asprak->nim}}</td>
-                            <td>{{$asprak->nama}}td>
+                            <td>{{$asprak->nama}}</td>
+                            <td>{{$asprak->email}}</td>
                             <td>
                                  <a href="{{url('admin/asprak/'.$asprak->id)}}" class="btn btn-warning">
                                     Detail
                                  </a>
                                   <a href="{{url('admin/asprak/'.$asprak->id.'/edit')}}" class="btn btn-info">
                                    Sunting
+                                  </a>
+                                  <a href="{{url('admin/asprak/'.$asprak->id.'/delete')}}" class="btn btn-danger">
+                                   Hapus
                                   </a>
                                 
                           </td>

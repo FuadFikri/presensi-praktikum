@@ -5,6 +5,7 @@ use App\User;
 use App\Role;
 use Illuminate\Http\Request;
 use Alert;
+use Validator;
 
 class AdminController extends Controller
 {
@@ -37,14 +38,13 @@ class AdminController extends Controller
      */
     public function store_asprak(Request $request)
     {
-        // $validatedData = $request->validate([
-        //     'name' => 'required|string|max:255',
-        //     'nim'=> 'required',
-        //     'email' => 'required|string|email|max:255|unique:users',
-        //     'password' => 'required|string|min:6',
-        // ]);
-        // dd($validatedData);
-        // dd($request);
+        $validation = Validator::make($request->all(), [
+            'nama' =>'required|min:3|max:30',
+            'email' => 'required|min:5|email',
+            'password' => 'required|min:8'
+            // 'password_confirmation' => 'required|same:password'
+        ])->validate();
+
         $asprak = User::create([
             'nama' => $request->nama,
             'email' => $request->email,
@@ -56,12 +56,7 @@ class AdminController extends Controller
         return redirect('admin/asprak');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show_asprak($id)
     {
         $asprak = User::find($id);
@@ -76,19 +71,26 @@ class AdminController extends Controller
      */
     public function edit_asprak($id)
     {
-        //
+        $asprak = User::find($id);
+        return view('admin/edit_asprak',['asprak'=>$asprak]);
     }
 
     public function update_asprak(Request $request, $id)
     {
-        //
+        $asprak = User::find($id);
+        $asprak->nama = $request->nama;
+        $asprak->email = $request->email;
+        $asprak->password = bcrypt($request->password);
+        $asprak->nim = $request->nim;
+        
+        $asprak->save();
+        return redirect('admin/asprak');
     }
 
     public function delete_asprak($id)
     {
         $asprak = User::find($id);
-        dd($asprak);
-        $asprak->destroy();
+        $asprak->delete();
         return redirect('admin/asprak');
     }
 }

@@ -47,8 +47,8 @@ Route::prefix('/admin')->group(function(){
         Route::post('asprak/store','AdminController@store_asprak')->name('asprak.store');
         Route::put('asprak/{asprak}','AdminController@update_asprak')->name('asprak.update');
         Route::get('asprak/{id}','AdminController@show_asprak')->name('asprak.show');
-        Route::delete('asprak/{id}','AdminController@delete_asprak')->name('asprak.destroy');
-        Route::get('asprak/{asprak}/edit','AdminController@edit_asprak')->name('asprak.edit');
+        Route::get('asprak/{id}/delete','AdminController@delete_asprak')->name('asprak.destroy');
+        Route::get('asprak/{id}/edit','AdminController@edit_asprak')->name('asprak.edit');
 
     });
 });
