@@ -65,3 +65,14 @@ Route::prefix('/admin')->group(function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// ini login
+
+Route::get('/login', function () {
+    return view('login/login');
+});
+// ini register
+Route::get('/register', function () {
+    return view('login/register');
+});
