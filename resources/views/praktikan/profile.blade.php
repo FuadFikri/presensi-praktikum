@@ -23,10 +23,10 @@
                           <img class="img-responsive avatar-view" src="{{ asset('assets/images/mamas.jpg') }}" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-                      <h3>Fuad Fikri</h3>
+                      <h3>Steven</h3>
 
                       <ul class="list-unstyled user_data">
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> Pogung Lor
+                        <li><i class="fa fa-map-marker user-profile-icon"></i>  Lor
                         </li>
 
                         <li>
