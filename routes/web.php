@@ -57,6 +57,16 @@ Route::prefix('/admin')->group(function(){
 
 
 // praktikan collections
+Route::get('/praktikan', function () {
+    return view('praktikan/home');
+});
+
+Route::get('/praktikan/profile', function () {
+    return view('praktikan/profile');
+});
+Route::get('/praktikan/feedback', function () {
+    return view('praktikan/feedback');
+});
 
 
 
