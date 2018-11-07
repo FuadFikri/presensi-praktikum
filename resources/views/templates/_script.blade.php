@@ -39,4 +39,10 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('assets/js/custom.min.js') }}"></script>
+     <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+     <!-- ECharts -->
+    <script src="{{ asset('assets/vendors/echarts/dist/echarts.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/echarts/map/js/world.js') }}"></script>
+
 	
