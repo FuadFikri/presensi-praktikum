@@ -70,7 +70,11 @@ Route::get('/praktikan/feedback', function () {
 
 
 
-// asisten collections = dosen
+// asisten collections 
+Route::prefix('asprak')->group(function(){
+    Route::get('/', 'AsprakController@index');
+    
+});
 
 Auth::routes();
 
