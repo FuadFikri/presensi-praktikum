@@ -13,7 +13,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Praktikum Algoritma</h2>
+                  <h2>{{ $praktikum->nama }}</h2>{{$data}}
 
                     <div class="clearfix"></div>
                 </div>

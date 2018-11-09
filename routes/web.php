@@ -73,6 +73,8 @@ Route::get('/praktikan/feedback', function () {
 // asisten collections 
 Route::prefix('asprak')->group(function(){
     Route::get('/', 'AsprakController@index');
+    Route::get('/praktikum/{id}', 'AsprakController@show_praktikum');
+    
     
 });
 
