@@ -16,7 +16,7 @@ class CreatePraktikumsTable extends Migration
         Schema::create('praktikums', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
-            $table->integer('kode_vmk');
+            $table->string('kode_vmk');
             $table->integer('sks');
             $table->string('kelas');
 
