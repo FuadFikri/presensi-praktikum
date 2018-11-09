@@ -16,10 +16,9 @@
                         <label for="praktikum" class="col-md-3 control-label">Praktikum</label>
                          <div class="col-md-6">
                             <select class="form-control" id="sel1">
-                                <option>Algoritma PEmrograman</option>
-                                <option>JAringan Komputer</option>
-                                <option>Komputasi Numerik</option>
-                                <option>Animasi </option>
+                                @foreach ($praktikums as $item)
+                                    <option value="">{{ $item->nama }}</option>
+                                @endforeach
                             </select>
                          </div>
                     </div>
