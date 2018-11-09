@@ -10,11 +10,18 @@ class AsprakController extends Controller
 {
     public function index()
     {
-        return view('asprak.home');
+        $praktikums = Praktikum::all();
+        return view('asprak.home', ['praktikums'=>$praktikums]);
     }
 
     public function create_praktikum(){
 
+    }
+
+    public function show_praktikum($id){
+        $praktikum = Praktikum::findOrFail($id);
+        $data = "halo";
+        return view('asprak/praktikum',['praktikum'=>$praktikum, 'data'=>$data]);
     }
     
 }
