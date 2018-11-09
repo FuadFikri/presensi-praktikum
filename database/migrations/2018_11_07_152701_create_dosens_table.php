@@ -17,7 +17,7 @@ class CreateDosensTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('nip');
-            $table->integer('telp');
+            $table->string('telp');
             $table->timestamps();
         });
     }

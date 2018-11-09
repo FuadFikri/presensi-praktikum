@@ -19,7 +19,7 @@ class DosenSeeder extends Seeder
         DB::table('dosens')->insert([
             'nama' => 'Yusron Fuadi, S.Sn., M.Sn.',
             'nip' => '111198301201605101',
-            'telp' => '09089897192',
+            'telp' => '0908992',
         ]);
         DB::table('dosens')->insert([
             'nama' => 'Anindita Suryarasmi, S.Kom., M.Cs.',
@@ -34,7 +34,7 @@ class DosenSeeder extends Seeder
         DB::table('dosens')->insert([
             'nama' => 'Umar Taufiq, S.Kom., M.Cs.',
             'nip' => '111198212201610101',
-            'telp' => '092889897192',
+            'telp' => '0928898192',
         ]);
         DB::table('dosens')->insert([
             'nama' => 'Imam Fahrurrozi, S.T., M.Cs.',
@@ -49,7 +49,7 @@ class DosenSeeder extends Seeder
         DB::table('dosens')->insert([
             'nama' => 'Irkham Huda, S.Kom., M.Cs.',
             'nip' => '111198905201706104',
-            'telp' => '345678',
+            'telp' => '07345678',
         ]);
         DB::table('dosens')->insert([
             'nama' => 'Firma Syahrian, S.Kom., M.Cs.',
