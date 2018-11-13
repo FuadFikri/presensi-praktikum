@@ -28,7 +28,7 @@ class AsprakController extends Controller
             $dosen = Dosen::where('id',$request->dosen)->first();
             $praktikum->dosen()->associate($dosen);
             $praktikum->save(); 
-        return "success";
+        return redirect(url('asprak'));
     }
 
     public function show_praktikum($id){
