@@ -15,7 +15,7 @@
             </div>
             <div class="count">#4</div>
         <h4>{{ $item->nama }} <b>{{ $item->kelas }}</b> </h4>
-                <p>Muhammad Fakhrurrifqi</p>
+                <p>{{ $item->dosen->nama }}</p>
             </div>
         </div>
     </a>

@@ -74,6 +74,7 @@ Route::get('/praktikan/feedback', function () {
 Route::prefix('asprak')->group(function(){
     Route::get('/', 'AsprakController@index');
     Route::get('/praktikum/{id}', 'AsprakController@show_praktikum');
+    Route::post('/praktikum/create', 'AsprakController@create_praktikum')->name('create.praktikum');
     
     
 });

@@ -19,7 +19,11 @@ class CreatePraktikumsTable extends Migration
             $table->string('kode_vmk');
             $table->integer('sks');
             $table->string('kelas');
+            $table->integer('dosen_id')->unsigned();
+            $table->integer('created_by')->nullable();
 
+            $table->foreign('dosen_id')->references('id')->on('dosens');
+            
             $table->timestamps();            
         });
     }
