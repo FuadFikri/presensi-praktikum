@@ -12,4 +12,9 @@ class Jadwal extends Model
     {
         return $this->belongsTo('App\Praktikum');
     }
+
+    public function presensis()
+    {
+        return $this->hasMany(Presensi::class);
+    }
 }
