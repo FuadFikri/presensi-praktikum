@@ -18,6 +18,7 @@ class CreateJadwalsTable extends Migration
             $table->date('tanggal');
             $table->time('mulai');
             $table->time('selesai');
+            $table->string('materi')->nullable();
             $table->integer('praktikum_id')->unsigned();
             $table->timestamps();
 

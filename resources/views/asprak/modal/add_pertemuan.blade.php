@@ -1,7 +1,7 @@
 <div class="modal" id="modal-form" tabindex="1" role="dialog" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="form-contact" method="post" class="form-horizontal" data-toggle="validator" enctype="multipart/form-data">
+        <form action="{{ url('/asprak/praktikum/jadwal') }}" method="post" class="form-horizontal" data-toggle="validator" enctype="multipart/form-data">
                 {{ csrf_field() }} {{ method_field('POST') }}
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -12,30 +12,36 @@
 
 
                 <div class="modal-body">
+                <input type="hidden" name="praktikum_id" value="{{$praktikum->id}}">
+                    <div class="form-group">
+                        <label for="praktikum" class="col-md-3 control-label">Tanggal</label>
+                         <div class="col-md-6">
+                            <input type="date" class="form-control" name="tanggal" required>
+                         </div>
+                    </div>
                     <div class="form-group">
                         <label for="praktikum" class="col-md-3 control-label">Mulai</label>
                          <div class="col-md-6">
-                            <input type="time">
+                            <input type="text" class="form-control" name="mulai" required>
+                            <small>contoh : 14.00</small>
+                            
                          </div>
                     </div>
 
                     <div class="form-group">
                         <label for="asprak" class="col-md-3 control-label">Selesai</label>
                          <div class="col-md-6">
-                             <input type="time">
+                             <input type="text" class="form-control" name="selesai" required>
+                             <small>contoh : 14.00</small>
                          </div>
                     </div>
                     <div class="form-group">
-                        <label for="asprak" class="col-md-3 control-label">Ruang</label>
+                        <label for="asprak" class="col-md-3 control-label">Materi</label>
                          <div class="col-md-6">
-                            <select class="form-control" id="sel1">
-                                <option>Lab 1</option>
-                                <option>Lab 3</option>
-                                <option>Lab 4</option>
-                                <option>Lab 6</option>
-                            </select>
+                             <input type="text" class="form-control" name="materi" required>
                          </div>
                     </div>
+                   
                 </div>
 
                 <div class="modal-footer">

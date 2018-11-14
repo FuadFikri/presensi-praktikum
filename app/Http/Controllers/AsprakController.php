@@ -37,4 +37,49 @@ class AsprakController extends Controller
         return view('asprak/praktikum',['praktikum'=>$praktikum]);
     }
     
+    // ================================JADWAL========================================
+
+    public function index_jadwal($id)
+    {
+        $praktikum = Praktikum::findOrFail($id);
+        $jadwals = Jadwal::where('praktikum_id',$id)->get();
+        return view('asprak/praktikum',['praktikum'=>$praktikum  , 'jadwals'=>$jadwals]);
+    }
+    public function presensi_jadwal()
+    {
+
+    }
+    public function feedback_jadwal()
+    {
+
+    }
+    public function store_jadwal(Request $request)
+    {
+        $jadwal = Jadwal::create([
+            'tanggal' => $request->tanggal,
+            'mulai' => $request->mulai,
+            'selesai' => $request->selesai,
+            'materi' => $request->materi,
+            'praktikum_id' => $request->praktikum_id,
+        ]);
+        if ($jadwal) {
+            return redirect(url('asprak/praktikum/'.$request->praktikum_id));
+        }
+    }
+    public function edit_jadwal()
+    {
+
+    }
+    public function update_jadwal()
+    {
+
+    }
+    public function delete_jadwal(Request $request, $id)
+    {
+        $jadwal = Jadwal::find($id);
+        $jadwal->delete();
+        return redirect(url('asprak/praktikum/'.$request->praktikum_id));
+    }
+    
+
 }
