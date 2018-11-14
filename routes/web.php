@@ -73,8 +73,10 @@ Route::get('/praktikan/feedback', function () {
 // asisten collections 
 Route::prefix('asprak')->group(function(){
     Route::get('/', 'AsprakController@index');
-    Route::get('/praktikum/{id}', 'AsprakController@show_praktikum');
+    Route::get('/praktikum/{id}', 'AsprakController@index_jadwal');
     Route::post('/praktikum/create', 'AsprakController@create_praktikum')->name('create.praktikum');
+    Route::post('/praktikum/jadwal', 'AsprakController@store_jadwal')->name('store.jadwal');
+    Route::delete('/praktikum/jadwal/{id}', 'AsprakController@delete_jadwal')->name('delete.jadwal');
     
     
 });

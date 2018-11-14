@@ -25,30 +25,43 @@
                           <th>Tanggal</th>
                           <th>Waktu mulai</th>
                           <th>Waktu selesai</th>
-                          <th>Ruang</th>
-                          <th></th>
+                          <th>Materi</th>
+                          {{-- <th></th> --}}
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>27 September 2018</td>
-                          <td>14.00</td>
-                          <td>15.40</td>
-                          <td>Lab nganu</td>
-                          <td><div class="x_content">
-                          <a href="{{url('asprak/presensi')}}">
-                            <button type="button" class="btn btn-success" >Presensi</button>
-                          </a>
-                          <a href="{{url('asprak/feedback')}}">
-                            <button type="button" class="btn btn-info">Feedback</button>
-                          </a>
-                          <a href="{{url('asprak/hapus')}}">
-                            <button type="button" class="btn btn-danger">Hapus</button>
-                          </a>  
-                            </div>
+                       
+                          @foreach ($jadwals as $item)
+                           <tr>
+                              <td></td>
+                              <td>  {{ $item->tanggal}} </td>
+                              <td> {{$item->mulai}} </td>
+                              <td> {{$item->selesai}} </td>
+                              <td> {{$item->materi}} </td>
+                              <td>
+                                 
+                                  <a href="{{url('asprak/presensi')}}">
+                                    <button type="button" class="btn btn-success  btn-sm" >Presensi</button>
+                                  </a>
+                                  <a href="{{url('asprak/feedback')}}">
+                                    <button type="button" class="btn btn-info  btn-sm">Feedback</button>
+                                  </a>
+                                  <a href="{{url('asprak/feedback')}}">
+                                    <button type="button" class="btn btn-warning  btn-sm">Edit</button>
+                                  </a>
+                          
+                                <form action="{{ url('asprak/praktikum/jadwal/'.$item->id) }}" method="POST" class="" style="display:inline-table;"  onsubmit="return confirm('Hapus data ini?')" >
+                                      @csrf
+                                      <input type="hidden" value="DELETE" name="_method">
+                                      <input type="hidden" value="{{$praktikum->id}}" name="praktikum_id">
+                                      <button type="submit" class="btn btn-danger  btn-sm">Hapus</button>
+                                  </form>
+
                           </td>
-                        </tr>
+                          </tr>
+                          @endforeach
+                          
+                        
                       </tbody>
                     </table>
 
