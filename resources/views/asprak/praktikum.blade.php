@@ -40,13 +40,13 @@
                               <td> {{$item->materi}} </td>
                               <td>
                                  
-                                  <a href="{{url('asprak/presensi')}}">
+                                  <a href="{{url('asprak/'. $item->id .'/presensi')}}">
                                     <button type="button" class="btn btn-success  btn-sm" >Presensi</button>
                                   </a>
                                   <a href="{{url('asprak/feedback')}}">
                                     <button type="button" class="btn btn-info  btn-sm">Feedback</button>
                                   </a>
-                                  <a href="{{url('asprak/feedback')}}">
+                                  <a href="{{url('asprak/praktikum/jadwal/'.$item->id.'/edit')}}">
                                     <button type="button" class="btn btn-warning  btn-sm">Edit</button>
                                   </a>
                           
@@ -71,7 +71,7 @@
             </div>
           </div>
         </div>
-        @include('asprak/modal/add_pertemuan')
+        @include('asprak/modal/add_jadwal')
         <script type="text/javascript">
             function addPertemuan(){
                 $('#modal-form').modal('show');

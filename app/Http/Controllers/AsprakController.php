@@ -7,6 +7,7 @@ use App\Praktikum;
 use App\Jadwal;
 use App\Dosen;
 use App\User;
+use App\Presensi;
 
 class AsprakController extends Controller
 {
@@ -66,12 +67,22 @@ class AsprakController extends Controller
             return redirect(url('asprak/praktikum/'.$request->praktikum_id));
         }
     }
-    public function edit_jadwal()
+    public function edit_jadwal($id)
     {
-
+        $jadwal = Jadwal::where('id',$id)->first();
+        // dd($jadwal);
+        return view('asprak/edit_jadwal',['jadwal'=>$jadwal]);
     }
-    public function update_jadwal()
-    {
+    public function update_jadwal(Request $request, $id)
+    {   
+        $jadwal = Jadwal::find($id);
+        $jadwal->tanggal = $request->tanggal;
+        $jadwal->mulai = $request->mulai;
+        $jadwal->selesai = $request->selesai;
+        $jadwal->materi = $request->materi;
+
+        $jadwal->save();
+        return redirect(url('asprak/praktikum/'.$request->praktikum_id));
 
     }
     public function delete_jadwal(Request $request, $id)
@@ -81,5 +92,10 @@ class AsprakController extends Controller
         return redirect(url('asprak/praktikum/'.$request->praktikum_id));
     }
     
+    public function index_presensi($id)
+    {
+        
+        $praktikan = User::where();
+    }
 
 }
