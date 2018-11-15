@@ -17,4 +17,9 @@ class Praktikum extends Model
     {
         return $this->belongsTo('App\Dosen');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class,Keanggotaan::class);
+    }
 }

@@ -13,5 +13,9 @@ class User extends Authenticatable
         'nama', 'email', 'password','nim','role_id','token','status',
     ];
 
-  
+
+    public function praktikums()
+    {
+        return $this->belongsToMany(Praktikum::class,Keanggotaan::class);
+    }
 }
