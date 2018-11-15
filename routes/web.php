@@ -77,6 +77,10 @@ Route::prefix('asprak')->group(function(){
     Route::post('/praktikum/create', 'AsprakController@create_praktikum')->name('create.praktikum');
     Route::post('/praktikum/jadwal', 'AsprakController@store_jadwal')->name('store.jadwal');
     Route::delete('/praktikum/jadwal/{id}', 'AsprakController@delete_jadwal')->name('delete.jadwal');
+    Route::get('/praktikum/jadwal/{id}/edit', 'AsprakController@edit_jadwal')->name('edit.jadwal');
+    Route::put('/praktikum/jadwal/{id}/update', 'AsprakController@update_jadwal')->name('update.jadwal');
+
+    Route::get('/{id}/presensi','AsprakController@index_presensi');
     
     
 });
