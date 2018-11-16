@@ -38,18 +38,18 @@ class AdminController extends Controller
      */
     public function store_asprak(Request $request)
     {
-        $validation = Validator::make($request->all(), [
-            'nama' =>'required|min:3|max:30',
-            'email' => 'required|min:5|email',
-            'password' => 'required|min:8'
-            // 'password_confirmation' => 'required|same:password'
-        ])->validate();
+        // $validation = Validator::make($request->all(), [
+        //     'nama' =>'required|min:3|max:30',
+        //     'email' => 'required|min:5|email',
+        //     'password' => 'required|min:8'
+        //     // 'password_confirmation' => 'required|same:password'
+        // ])->validate();
 
         $asprak = User::create([
             'nama' => $request->nama,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'nim' =>$request->nim,
+            // 'nim' =>$request->nim,
             'role_id' => 2
         ]);
         Alert::success('Success Message', 'Optional Title');
