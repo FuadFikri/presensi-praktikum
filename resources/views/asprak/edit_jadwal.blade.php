@@ -1,15 +1,12 @@
 @extends('asprak/dashboard')
 @section('konten')
-<div class="right_col" role="main">
-
+<div class="right_col" role="">
+    
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                
         <form action="{{ url('/asprak/praktikum/jadwal/'.$jadwal->id.'/update') }}" method="post" class="form-horizontal" data-toggle="validator" enctype="multipart/form-data">
                 {{ csrf_field() }} {{ method_field('PUT') }}
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"> &times; </span>
-                    </button>
-                    <h3 class="modal-title"></h3>
-                </div>
+              
 
 
                 <div class="modal-body">
@@ -47,10 +44,17 @@
 
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary btn-save">Simpan</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                <a href="{{url('asprak/praktikum/'.$jadwal->praktikum_id)}}">
+                    <button type="button" class="btn btn-default" >Batal</button>
+                </a>
                 </div>
 
             </form>
+
+                </div>
+    
+    
 </div>
+
 
 @endsection

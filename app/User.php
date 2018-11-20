@@ -16,6 +16,6 @@ class User extends Authenticatable
 
     public function praktikums()
     {
-        return $this->belongsToMany(Praktikum::class,Keanggotaan::class);
+        return $this->belongsToMany(Praktikum::class,'Keanggotaan');
     }
 }

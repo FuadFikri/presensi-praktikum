@@ -20,36 +20,20 @@ class AdminController extends Controller
         return view('admin/asprak',['aspraks'=>$aspraks]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create_asprak()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store_asprak(Request $request)
     {
-        $validation = Validator::make($request->all(), [
-            'nama' =>'required|min:3|max:30',
-            'email' => 'required|min:5|email',
-            'password' => 'required|min:8'
-            // 'password_confirmation' => 'required|same:password'
-        ])->validate();
+        // $validation = Validator::make($request->all(), [
+        //     'nama' =>'required|min:3|max:30',
+        //     'email' => 'required|min:5|email',
+        //     'password' => 'required|min:8'
+        //     // 'password_confirmation' => 'required|same:password'
+        // ])->validate();
 
         $asprak = User::create([
             'nama' => $request->nama,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'nim' =>$request->nim,
+            // 'nim' =>$request->nim,
             'role_id' => 2
         ]);
         Alert::success('Success Message', 'Optional Title');
@@ -93,4 +77,21 @@ class AdminController extends Controller
         $asprak->delete();
         return redirect('admin/asprak');
     }
+
+    // ============= CRUD Data master Dosen ====================//
+    // nama model = Dosen
+    
+    
+    
+    
+    
+    
+    // ============= CRUD Data master Matkul ====================//
+    // nama model = Matkul
+
+
+
+
+
 }
+

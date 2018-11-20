@@ -20,6 +20,11 @@ class Praktikum extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class,Keanggotaan::class);
+        return $this->belongsToMany(User::class,'Keanggotaan');
+    }
+
+    public function matkul()
+    {
+        return $this->belongsTo('App\Matkul');
     }
 }

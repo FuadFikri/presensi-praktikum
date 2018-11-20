@@ -15,13 +15,10 @@
                     <div class="form-group">
                         <label for="praktikum" class="col-md-3 control-label">Praktikum</label>
                          <div class="col-md-6">
-                            <select class="form-control" id="sel1" name="nama">
-                                    <option value="Algoritma Pemrograman">Algoritma Pemrograman</option>
-                                    <option value="Pemrograman Berorientasi Objek">Pemrograman Berorientasi Objek</option>
-                                    <option value="Desain Elementer">Desain Elementer </option>
-                                    <option value="Pemrograman Web ">Pemrograman Web </option>
-                                    <option value="Jaringan Komputer">Jaringan Komputer </option>
-                                    <option value="Animasi 3D">Animasi 3D</option>
+                            <select class="form-control" id="sel1" name="matkul">
+                                    @foreach ($matkuls as $item)
+                                        <option value="{{ $item->id }}"> {{ $item->nama }} </option>
+                                    @endforeach
                             </select>
                          </div>
                     </div>
@@ -30,7 +27,7 @@
                         <label for="asprak" class="col-md-3 control-label">Dosen</label>
                          <div class="col-md-6">
                             <select class="form-control" id="sel1" name="dosen">
-                                @foreach ($dosen as $item)
+                                @foreach ($dosens as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                 @endforeach
                             </select>
@@ -40,25 +37,14 @@
                         <label for="asprak" class="col-md-3 control-label">Kelas</label>
                          <div class="col-md-6">
                             <select class="form-control" id="sel1" name="kelas">
-                                <option>A1</option>
-                                <option>A2</option>
-                                <option>B1</option>
-                                <option>B2</option>
+                               <option value="A1">A1</option>
+                               <option value="A1">A2</option>
+                               <option value="A1">B1</option>
+                               <option value="A1">B2</option>
                             </select>
                          </div>
                     </div>
-                    <div class="form-group">
-                        <label for="asprak" class="col-md-3 control-label">SKS</label>
-                         <div class="col-md-6">
-                            <input type="number" name="sks" id="sks" class="form-control" >
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="asprak" class="col-md-3 control-label">Kode VMK</label>
-                         <div class="col-md-6">
-                            <input type="text" name="kode_vmk" id="kode_vmk" class="form-control" >
-                        </div>
-                    </div>
+                   
                 </div>
 
                 <div class="modal-footer">
