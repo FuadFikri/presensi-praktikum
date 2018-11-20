@@ -22,4 +22,9 @@ class Praktikum extends Model
     {
         return $this->belongsToMany(User::class,'Keanggotaan');
     }
+
+    public function matkul()
+    {
+        return $this->belongsTo('App\Matkul');
+    }
 }
