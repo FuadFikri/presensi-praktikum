@@ -8,26 +8,29 @@ use App\Jadwal;
 use App\Dosen;
 use App\User;
 use App\Presensi;
+use App\Matkul;
 
 class AsprakController extends Controller
 {
     public function index()
     {
+        $matkuls = Matkul::all();
         $praktikums = Praktikum::all();
-        $dosen = Dosen::All();
-        return view('asprak.home', ['praktikums'=>$praktikums, 'dosen'=>$dosen]);
+        $dosens = Dosen::All();
+        return view('asprak.home', ['praktikums'=>$praktikums, 'dosens'=>$dosens,'matkuls'=>$matkuls]);
     }
 
     public function create_praktikum(Request $request){
             $praktikum = New Praktikum;
-            $praktikum['nama'] = $request->nama;
-            $praktikum['kode_vmk'] = $request->kode_vmk;
-            $praktikum['sks'] = $request->sks;
             $praktikum['kelas'] = $request->kelas;
             $praktikum['created_by'] = 1;
 
+            $matkul = Matkul::where('id',$request->matkul)->first();
+            $praktikum->matkul()->associate($matkul);   
+            
             $dosen = Dosen::where('id',$request->dosen)->first();
             $praktikum->dosen()->associate($dosen);
+            
             $praktikum->save(); 
         return redirect(url('asprak'));
     }

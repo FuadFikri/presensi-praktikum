@@ -20,22 +20,6 @@ class AdminController extends Controller
         return view('admin/asprak',['aspraks'=>$aspraks]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create_asprak()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store_asprak(Request $request)
     {
         // $validation = Validator::make($request->all(), [
@@ -93,4 +77,21 @@ class AdminController extends Controller
         $asprak->delete();
         return redirect('admin/asprak');
     }
+
+    // ============= CRUD Data master Dosen ====================//
+    // nama model = Dosen
+    
+    
+    
+    
+    
+    
+    // ============= CRUD Data master Matkul ====================//
+    // nama model = Matkul
+
+
+
+
+
 }
+
