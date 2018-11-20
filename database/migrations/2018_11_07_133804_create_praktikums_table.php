@@ -15,14 +15,13 @@ class CreatePraktikumsTable extends Migration
     {
         Schema::create('praktikums', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('kode_vmk');
-            $table->integer('sks');
             $table->string('kelas');
+            $table->integer('matkul_id')->unsigned();
             $table->integer('dosen_id')->unsigned();
             $table->integer('created_by')->nullable();
 
             $table->foreign('dosen_id')->references('id')->on('dosens');
+            $table->foreign('matkul_id')->references('id')->on('matkuls');
             
             $table->timestamps();            
         });
