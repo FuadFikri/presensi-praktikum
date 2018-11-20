@@ -32,11 +32,6 @@ class DosenSeeder extends Seeder
             'telp' => '092889897192',
         ]);
         DB::table('dosens')->insert([
-            'nama' => 'Umar Taufiq, S.Kom., M.Cs.',
-            'nip' => '111198212201610101',
-            'telp' => '0928898192',
-        ]);
-        DB::table('dosens')->insert([
             'nama' => 'Imam Fahrurrozi, S.T., M.Cs.',
             'nip' => '111198801201701101',
             'telp' => '456789879',
