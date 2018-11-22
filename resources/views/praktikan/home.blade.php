@@ -2,47 +2,49 @@
 
 @section('konten')
 	<div class="right_col" role="main">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-              </div>
-
-              <div class="title_right">
-                
-              </div>
-            </div>
-
-	 <div class="row">
-            <div class="col-md-8 col-sm-8 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Presentase Kehadiran Mahasiswa</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <div id="mainb" style="height:350px;"></div>
-
-                  </div>
+<div class="row">
+    
+    <a onclick="addPraktikum()">
+        <button class="btn btn-primary" type="button" style="float:right;"><i class="fa fa-plus"></i>  Tambah Praktikum</button>
+    </a>
+    
+</div>
+<div class="row">
+    @if(session('message'))
+        <div class="alert alert-danger">
+        <strong>{{session('message')}}</strong>
+        </div>
+    @endif
+   
+        @foreach ($praktikums as $praktikum)
+             <a href="">
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                    <div class="icon"><i class="fa fa-book"></i>
                 </div>
-              </div>
+                <div class="count"># {{ count($praktikum->jadwals) }}</div>
+                    <h4>{{ $praktikum->matkul->nama }} <b>{{ $praktikum->kelas }}</b> </h4>
+                <p>{{ $praktikum->dosen->nama }}</p>
                 </div>
-              
-      </div>
+                </div>
+             </a>
+        @endforeach
+        
+
+
+
+</div>
   </div>
+  @include('praktikan/modal/add_praktikum')
+<style>
+h4{
+    margin: 8px;
+}
+</style>
+<script type="text/javascript">
+    function addPraktikum() {
+        $('#modal-form').modal('show');
+
+    }
+</script>
 @endsection

@@ -13,9 +13,11 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <h2>{{ $praktikum->nama }} <b>{{$praktikum->kelas}}</b> </h2>
-
+                  <h2>{{ $praktikum->matkul->nama }} <b>{{$praktikum->kelas}}</b> </h2>
+                   
+                  
                     <div class="clearfix"></div>
+                    <button onclick="kode()" id="kode" class="btn btn-sm btn-primary"> kode masuk</button>  <p id="kode_masuk" style="display:none">{{$praktikum->kode_masuk }}</p>  
                 </div>
                   <div class="x_content">
                         <table class="table table-hover">
@@ -76,5 +78,15 @@
             function addPertemuan(){
                 $('#modal-form').modal('show');
             }
+
+            function kode(){
+                $('#kode_masuk').css('display','inline');
+                $("#kode").click(function(){
+                    $("p").toggle();
+                });
+            }
+           
+           
         </script>
+        
 @endsection
