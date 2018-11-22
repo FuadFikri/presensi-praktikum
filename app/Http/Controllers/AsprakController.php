@@ -15,22 +15,24 @@ class AsprakController extends Controller
     public function index()
     {
         $matkuls = Matkul::all();
-        $praktikums = Praktikum::all();
+        // $praktikums = Praktikum::all();
         $dosens = Dosen::All();
+        $user = User::find(2); // $user = TODO dapatkan user aktif
+        $praktikums = Praktikum::where('created_by',2)->get();
         return view('asprak.home', ['praktikums'=>$praktikums, 'dosens'=>$dosens,'matkuls'=>$matkuls]);
     }
 
     public function create_praktikum(Request $request){
             $praktikum = New Praktikum;
             $praktikum['kelas'] = $request->kelas;
-            $praktikum['created_by'] = 1;
+            $praktikum['created_by'] = 2;
+            $praktikum['kode_masuk'] = \str_random(5);
 
             $matkul = Matkul::where('id',$request->matkul)->first();
             $praktikum->matkul()->associate($matkul);   
             
             $dosen = Dosen::where('id',$request->dosen)->first();
             $praktikum->dosen()->associate($dosen);
-            
             $praktikum->save(); 
         return redirect(url('asprak'));
     }
@@ -49,14 +51,7 @@ class AsprakController extends Controller
         $jadwals = Jadwal::where('praktikum_id',$id)->get();
         return view('asprak/praktikum',['praktikum'=>$praktikum  , 'jadwals'=>$jadwals]);
     }
-    public function presensi_jadwal()
-    {
-
-    }
-    public function feedback_jadwal()
-    {
-
-    }
+  
     public function store_jadwal(Request $request)
     {
         $jadwal = Jadwal::create([
@@ -97,8 +92,11 @@ class AsprakController extends Controller
     
     public function index_presensi($id)
     {
-        
-        $praktikan = User::where();
+        $jadwal = Jadwal::find($id);
+        $praktikum_id = $jadwal->praktikum_id;
+        $praktikum = Praktikum::where('id',$praktikum_id)->first();
+        $anggota_praktikum = $praktikum->users;
+        return view('asprak/presensi',['praktikans' => $anggota_praktikum]);
     }
 
 }

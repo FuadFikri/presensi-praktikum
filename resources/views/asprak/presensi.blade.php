@@ -20,36 +20,40 @@
                         <tr>
                           <th>Nama</th>
                           <th>NIM</th>
-                          <th>Masuk | Izin/Sakit | Alpha</th>
+                          <th>Masuk</th>
+                          <th>Tidak</th>
+                          <th>Izin</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th>Bambang sutopo widarto cahyono</th>
-                          <td>14/401/203/3j</td>
-                          <td >
-                            <form action="" method="post" >
-                                <input type="radio" name="masuk" id="masuk" style="margin-right:29px;">      
-                                <input type="radio" name="masuk" id="masuk" style="margin-right:29px;"> 
-                                <input type="radio" name="masuk" id="masuk" style="margin-right:29px;"> 
-                                                         
-                          </td>
+                        @foreach ($praktikans as $praktikan)
+                          <tr>
+                            <th> {{ $praktikan->nama}} </th>
+                            <td> {{ $praktikan->nim}} </td>
+                            
+                              <form action="" method="post" >
+                              <td><input type="radio" name="masuk" id="masuk" style="margin-right:29px;"></td>
+                              <td> <input type="radio" name="masuk" id="masuk" style="margin-right:29px;"> </td>
+                              <td><input type="radio" name="masuk" id="masuk" style="margin-right:29px;"></td>
+                                 </form> 
                         </tr>
+                        @endforeach
+                        
                       </tbody>
                     </table>
 
                     <input type="submit" value="simpan" class="btn btn-success pull-right">
-                    </form> 
+                   
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        @include('asprak/modal/add_pertemuan')
+        {{-- @include('asprak/modal/add_pertemuan')
         <script type="text/javascript">
             function addPertemuan(){
                 $('#modal-form').modal('show');
             }
-        </script>
+        </script> --}}
 @endsection

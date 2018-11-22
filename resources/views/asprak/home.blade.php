@@ -13,7 +13,7 @@
             <div class="tile-stats">
                 <div class="icon"><i class="fa fa-book"></i>
             </div>
-            <div class="count">#4</div>
+        <div class="count"># {{ count($item->jadwals) }}</div>
         <h4>{{ $item->matkul->nama }} <b>{{ $item->kelas }}</b> </h4>
                 <p>{{ $item->dosen->nama }}</p>
             </div>

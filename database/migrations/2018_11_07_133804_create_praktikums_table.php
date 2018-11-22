@@ -19,7 +19,7 @@ class CreatePraktikumsTable extends Migration
             $table->integer('matkul_id')->unsigned();
             $table->integer('dosen_id')->unsigned();
             $table->integer('created_by')->nullable();
-
+            $table->string('kode_masuk');
             $table->foreign('dosen_id')->references('id')->on('dosens');
             $table->foreign('matkul_id')->references('id')->on('matkuls');
             
