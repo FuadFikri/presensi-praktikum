@@ -33,15 +33,15 @@
                                   @if ($presensi)
                                       @if($presensi->user_id === $praktikan->id)
                                       <a id="a-presensi" onclick="">
-                                        <button type="submit" id="presensi" class="btn btn-sm btn-info">Checked</button>
+                                        <button type="submit" id="presensi" class="btn btn-sm btn-info"> <i class="fa fa-check"></i> <strong> Checked</strong></button>
                                       </a>
                                       @endif
-                                  @endif
                                   
+                                  @else
                                       <a id="a-presensi" onclick="presensi({{ $praktikan->id}},{{ $jadwal->id}})">
                                     <button type="submit" id="presensi" class="btn btn-sm btn-dark">Check</button>
                                   </a>
-                                  
+                                  @endif
                                 </td>
                         </tr>
                         @endforeach
