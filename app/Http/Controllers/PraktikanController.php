@@ -25,6 +25,6 @@ class PraktikanController extends Controller
         // $user = TODO dapatkan user aktif
         $user = User::find(4);
         $user->praktikums()->attach($praktikum);
-        return "sucess";
+        return redirect(url('/praktikan'));
     }
 }
