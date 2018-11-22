@@ -96,7 +96,25 @@ class AsprakController extends Controller
         $praktikum_id = $jadwal->praktikum_id;
         $praktikum = Praktikum::where('id',$praktikum_id)->first();
         $anggota_praktikum = $praktikum->users;
-        return view('asprak/presensi',['praktikans' => $anggota_praktikum]);
+        $presensi = Presensi::where('jadwal_id',$jadwal->id)->first();
+        return view('asprak/presensi',['praktikans' => $anggota_praktikum,'jadwal'=>$jadwal,'presensi'=>$presensi]);
+    }
+
+    public function check_presensi()
+    {
+        $praktikan_id = $_GET['praktikan'];
+        $jadwal_id = $_GET['jadwal'];
+
+        $presensi = Presensi::create([
+            'jadwal_id' => $jadwal_id,
+            'user_id' => $praktikan_id
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'success',
+            'data'=> $presensi
+        ],200);
     }
 
 }
