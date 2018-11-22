@@ -20,9 +20,7 @@
                         <tr>
                           <th>Nama</th>
                           <th>NIM</th>
-                          <th>Masuk</th>
-                          <th>Tidak</th>
-                          <th>Izin</th>
+                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -31,11 +29,20 @@
                             <th> {{ $praktikan->nama}} </th>
                             <td> {{ $praktikan->nim}} </td>
                             
-                              <form action="" method="post" >
-                              <td><input type="radio" name="masuk" id="masuk" style="margin-right:29px;"></td>
-                              <td> <input type="radio" name="masuk" id="masuk" style="margin-right:29px;"> </td>
-                              <td><input type="radio" name="masuk" id="masuk" style="margin-right:29px;"></td>
-                                 </form> 
+                                <td>
+                                  @if ($presensi)
+                                      @if($presensi->user_id === $praktikan->id)
+                                      <a id="a-presensi" onclick="">
+                                        <button type="submit" id="presensi" class="btn btn-sm btn-info"> <i class="fa fa-check"></i> <strong> Checked</strong></button>
+                                      </a>
+                                      @endif
+                                  
+                                  @else
+                                      <a id="a-presensi" onclick="presensi({{ $praktikan->id}},{{ $jadwal->id}})">
+                                    <button type="submit" id="presensi" class="btn btn-sm btn-dark">Check</button>
+                                  </a>
+                                  @endif
+                                </td>
                         </tr>
                         @endforeach
                         
@@ -50,10 +57,23 @@
             </div>
           </div>
         </div>
-        {{-- @include('asprak/modal/add_pertemuan')
+        
         <script type="text/javascript">
-            function addPertemuan(){
-                $('#modal-form').modal('show');
-            }
-        </script> --}}
+          function presensi(praktikan,jadwal){
+             $.ajax({
+                        url : "{{ url('asprak/check-presensi') }}",
+                        type : "get",
+                        data : {'praktikan' : praktikan, 'jadwal' : jadwal},
+                        success : function(data) {
+                            
+                            $('#presensi').attr('class','btn btn-sm btn-info').html('checked');
+                            $('#a-presensi').attr('onclick','');
+                        },
+                        error : function () {
+                           alert('ada error bung');
+                        }
+                     });
+          }
+            
+        </script>
 @endsection

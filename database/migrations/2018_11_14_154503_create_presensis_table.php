@@ -16,11 +16,11 @@ class CreatePresensisTable extends Migration
         Schema::create('presensis', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('jadwal_id')->unsigned();
-            $table->integer('users_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('keterangan');
 
             $table->foreign('jadwal_id')->references('id')->on('jadwals');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });

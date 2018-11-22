@@ -83,6 +83,7 @@ Route::prefix('asprak')->group(function(){
     Route::put('/praktikum/jadwal/{id}/update', 'AsprakController@update_jadwal')->name('update.jadwal');
 
     Route::get('/{id}/presensi','AsprakController@index_presensi');
+    Route::get('check-presensi','AsprakController@check_presensi');
     
     
 });
