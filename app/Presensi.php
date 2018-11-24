@@ -12,4 +12,9 @@ class Presensi extends Model
     {
         return $this->belongsTo(Jadwal::class);
     }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

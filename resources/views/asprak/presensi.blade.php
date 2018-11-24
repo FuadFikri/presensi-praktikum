@@ -25,25 +25,46 @@
                       </thead>
                       <tbody>
                         @foreach ($praktikans as $praktikan)
+                          
                           <tr>
                             <th> {{ $praktikan->nama}} </th>
                             <td> {{ $praktikan->nim}} </td>
-                            
                                 <td>
-                                  @if ($presensi)
-                                      @if($presensi->user_id === $praktikan->id)
-                                      <a id="a-presensi" onclick="">
-                                        <button type="submit" id="presensi" class="btn btn-sm btn-info"> <i class="fa fa-check"></i> <strong> Checked</strong></button>
-                                      </a>
+                                      @if(count($presensi) == 0)
+                                            <a id="a-presensi{{ $praktikan->id}}" onclick="presensi{{ $praktikan->id}}({{ $praktikan->id}},{{ $jadwal->id}})">
+                                              <button type="submit" id="presensi{{ $praktikan->id}}" class="btn btn-sm btn-danger"><i class="fa fa-close"></i></button>
+                                            </a>   
+                                      @else
+                                            @foreach ($presensi as $p)
+                                              @if($p->user_id == $praktikan->id)
+                                                <a id="a-presensi{{ $praktikan->id}}" onclick="">
+                                                  <button type="submit" id="presensi{{ $praktikan->id}}" class="btn btn-sm btn-info">  <strong><i class="fa fa-check"></i> </strong></button>
+                                                </a>
+                                              @endif
+                                            @endforeach
                                       @endif
-                                  
-                                  @else
-                                      <a id="a-presensi" onclick="presensi({{ $praktikan->id}},{{ $jadwal->id}})">
-                                    <button type="submit" id="presensi" class="btn btn-sm btn-dark">Check</button>
-                                  </a>
-                                  @endif
                                 </td>
-                        </tr>
+                          </tr>
+                        
+                        <script type="text/javascript">
+                           function presensi{{ $praktikan->id}}(praktikan,jadwal){
+                            $.ajax({
+                              url : "{{ url('asprak/check-presensi') }}",
+                              type : "get",
+                              data : {'praktikan' : praktikan, 'jadwal' : jadwal},
+                              success : function(data) {
+                                  
+                                  $('#presensi{{ $praktikan->id}}').attr('class','btn btn-sm btn-info').html('<strong><i class="fa fa-check"></i> </strong>');
+                                  $('#a-presensi{{ $praktikan->id}}').attr('onclick','#');
+                                  console.log(praktikan,jadwal);
+                              },
+                              error : function () {
+                                alert('ada error bung');
+                              }
+                        });
+                          }
+                            
+                        </script>
                         @endforeach
                         
                       </tbody>
@@ -58,22 +79,5 @@
           </div>
         </div>
         
-        <script type="text/javascript">
-          function presensi(praktikan,jadwal){
-             $.ajax({
-                        url : "{{ url('asprak/check-presensi') }}",
-                        type : "get",
-                        data : {'praktikan' : praktikan, 'jadwal' : jadwal},
-                        success : function(data) {
-                            
-                            $('#presensi').attr('class','btn btn-sm btn-info').html('checked');
-                            $('#a-presensi').attr('onclick','');
-                        },
-                        error : function () {
-                           alert('ada error bung');
-                        }
-                     });
-          }
-            
-        </script>
+        
 @endsection
