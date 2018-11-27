@@ -1,0 +1,8 @@
+postgres://
+uukkfapmolhiws
+:
+ef911125d95f8232cc8353cfd066cea2bbbc42223ca22851fc09462aa6eb9c9a
+@
+ec2-54-197-234-33.compute-1.amazonaws.com
+:5432/
+d19876s15a2hce
