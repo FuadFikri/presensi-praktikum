@@ -18,4 +18,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Praktikum::class,'keanggotaans');
     }
+
+    public function presensis()
+    {
+        return $this->hasMany(Presensi::class);
+    }
 }

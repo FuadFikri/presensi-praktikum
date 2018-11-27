@@ -27,4 +27,11 @@ class PraktikanController extends Controller
         $user->praktikums()->attach($praktikum);
         return redirect(url('/praktikan'));
     }
+
+    public function index_jadwal($id_praktikum)
+    {
+        $praktikum = Praktikum::findOrFail($id_praktikum);
+        $jadwals = Jadwal::where('praktikum_id',$id_praktikum)->get();
+        return view('praktikan.jadwal',['praktikum'=>$praktikum,'jadwals'=>$jadwals]);
+    }
 }

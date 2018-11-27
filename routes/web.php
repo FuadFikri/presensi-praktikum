@@ -60,6 +60,7 @@ Route::prefix('/admin')->group(function(){
 Route::prefix('praktikan')->group(function(){
     Route::get('/', 'PraktikanController@index');
     Route::post('join-praktikum','PraktikanController@join_praktikum');
+    Route::get('jadwal/{id_praktikum}','PraktikanController@index_jadwal');
 });
 
 

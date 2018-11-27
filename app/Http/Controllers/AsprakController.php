@@ -61,6 +61,16 @@ class AsprakController extends Controller
             'materi' => $request->materi,
             'praktikum_id' => $request->praktikum_id,
         ]);
+        $praktikum = Praktikum::find($request->praktikum_id);
+        $anggota_praktikum = $praktikum->users;
+        foreach($anggota_praktikum as $a)
+        {
+            $presensi = Presensi::create([
+                'jadwal_id' => $jadwal->id,
+                'user_id' => $a->id
+            ]);
+        }
+        
         if ($jadwal) {
             return redirect(url('asprak/praktikum/'.$request->praktikum_id));
         }
@@ -105,12 +115,11 @@ class AsprakController extends Controller
     {
         $praktikan_id = $_GET['praktikan'];
         $jadwal_id = $_GET['jadwal'];
-
-        $presensi = Presensi::create([
-            'jadwal_id' => $jadwal_id,
-            'user_id' => $praktikan_id
-        ]);
-
+        
+        $presensi = Presensi::where('jadwal_id',$jadwal_id)->where('user_id',$praktikan_id)->first();
+        $presensi->status=1;
+        $presensi->save();
+        
         return response()->json([
             'success' => true,
             'message' => 'success',

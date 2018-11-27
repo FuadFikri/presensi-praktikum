@@ -17,9 +17,8 @@ class CreatePresensisTable extends Migration
             $table->increments('id');
             $table->integer('jadwal_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->string('keterangan');
-
-            $table->foreign('jadwal_id')->references('id')->on('jadwals');
+            $table->integer('status')->default(0);
+            $table->foreign('jadwal_id')->references('id')->on('jadwals')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
