@@ -14,8 +14,6 @@
                 <div class="x_panel">
                   <div class="x_title">
                   <h2>{{ $praktikum->matkul->nama }} <b>{{$praktikum->kelas}}</b> </h2>
-                   
-                  
                     <div class="clearfix"></div>
                     <button onclick="kode()" id="kode" class="btn btn-sm btn-primary"> kode masuk</button>  <p id="kode_masuk" style="display:none">{{$praktikum->kode_masuk }}</p>  
                 </div>
@@ -28,20 +26,17 @@
                           <th>Waktu mulai</th>
                           <th>Waktu selesai</th>
                           <th>Materi</th>
-                          {{-- <th></th> --}}
                         </tr>
                       </thead>
                       <tbody>
-                       
                           @foreach ($jadwals as $item)
-                           <tr>
+                          <tr>
                               <td></td>
-                              <td>  {{ $item->tanggal}} </td>
-                              <td> {{$item->mulai}} </td>
-                              <td> {{$item->selesai}} </td>
+                              <td>  {{date('j-n-Y', strtotime($item->tanggal))}}  </td>
+                              <td> {{date('g : i', strtotime($item->mulai))}} </td>
+                              <td> {{date('g : i', strtotime($item->selesai))}} </td>
                               <td> {{$item->materi}} </td>
                               <td>
-                                 
                                   <a href="{{url('asprak/'. $item->id .'/presensi')}}">
                                     <button type="button" class="btn btn-success  btn-sm" >Presensi</button>
                                   </a>
@@ -85,8 +80,6 @@
                     $("p").toggle();
                 });
             }
-           
-           
         </script>
         
 @endsection

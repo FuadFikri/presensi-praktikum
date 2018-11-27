@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Presensi extends Model
 {
     
-    protected $fillable=['user_id','jadwal_id','keterangan'];
+    protected $fillable=['user_id','jadwal_id','status'];
     public function jadwal()
     {
         return $this->belongsTo(Jadwal::class);
     }
 
-    public function users()
+    public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->BelongsTo(User::class);
     }
 }

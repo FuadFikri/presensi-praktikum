@@ -36,10 +36,16 @@
                                             </a>   
                                       @else
                                             @foreach ($presensi as $p)
-                                              @if($p->user_id == $praktikan->id)
-                                                <a id="a-presensi{{ $praktikan->id}}" onclick="">
-                                                  <button type="submit" id="presensi{{ $praktikan->id}}" class="btn btn-sm btn-info">  <strong><i class="fa fa-check"></i> </strong></button>
-                                                </a>
+                                              @if($praktikan->id == $p->user_id)
+                                                  @if ($p->status == 0)
+                                                      <a id="a-presensi{{ $praktikan->id}}" onclick="presensi{{ $praktikan->id}}({{ $praktikan->id}},{{ $jadwal->id}})">
+                                                        <button type="submit" id="presensi{{ $praktikan->id}}" class="btn btn-sm btn-danger"><i class="fa fa-close"></i></button>
+                                                      </a>
+                                                  @elseif ($p->status == 1)
+                                                      <a id="a-presensi" onclick="">
+                                                        <button type="submit" id="presensi" class="btn btn-sm btn-info">  <strong><i class="fa fa-check"></i> </strong></button>
+                                                      </a>
+                                                @endif
                                               @endif
                                             @endforeach
                                       @endif
@@ -47,7 +53,7 @@
                           </tr>
                         
                         <script type="text/javascript">
-                           function presensi{{ $praktikan->id}}(praktikan,jadwal){
+                          function presensi{{ $praktikan->id}}(praktikan,jadwal){
                             $.ajax({
                               url : "{{ url('asprak/check-presensi') }}",
                               type : "get",
@@ -71,7 +77,6 @@
                     </table>
 
                     <input type="submit" value="simpan" class="btn btn-success pull-right">
-                   
                   </div>
                 </div>
               </div>

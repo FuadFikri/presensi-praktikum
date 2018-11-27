@@ -15,33 +15,32 @@
                 <input type="hidden" name="praktikum_id" value="{{$praktikum->id}}">
                     <div class="form-group">
                         <label for="praktikum" class="col-md-3 control-label">Tanggal</label>
-                         <div class="col-md-6">
+                        <div class="col-md-6">
                             <input type="date" class="form-control" name="tanggal" required>
-                         </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="praktikum" class="col-md-3 control-label">Mulai</label>
-                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="mulai" required>
-                            <small>contoh : 14.00</small>
+                        <div class="col-md-6">
+                            <input type="time" class="form-control" name="mulai" required>
+                            <small>contoh : 08.00 AM</small>
                             
-                         </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="asprak" class="col-md-3 control-label">Selesai</label>
-                         <div class="col-md-6">
-                             <input type="text" class="form-control" name="selesai" required>
-                             <small>contoh : 14.00</small>
-                         </div>
+                        <div class="col-md-6">
+                            <input type="time" class="form-control" name="selesai" required>
+                            <small>contoh : 02.00 PM</small>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="asprak" class="col-md-3 control-label">Materi</label>
-                         <div class="col-md-6">
-                             <input type="text" class="form-control" name="materi" required>
-                         </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="materi" required>
+                        </div>
                     </div>
-                   
                 </div>
 
                 <div class="modal-footer">

@@ -17,7 +17,7 @@
     @endif
    
         @foreach ($praktikums as $praktikum)
-             <a href="">
+            <a href="{{ url('/praktikan/jadwal/'.$praktikum->id) }}">
                     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
                     <div class="icon"><i class="fa fa-book"></i>
@@ -27,7 +27,7 @@
                 <p>{{ $praktikum->dosen->nama }}</p>
                 </div>
                 </div>
-             </a>
+            </a>
         @endforeach
         
 

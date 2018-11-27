@@ -20,8 +20,8 @@
                     <div class="form-group">
                         <label for="praktikum" class="col-md-3 control-label">Mulai</label>
                          <div class="col-md-6">
-                         <input type="text" class="form-control" value="{{ $jadwal->mulai }}" name="mulai" required>
-                            <small>contoh : 14.00</small>
+                         <input type="time" class="form-control" value="{{ $jadwal->mulai }}" name="mulai" required>
+                            <small>contoh : 11.00 AM</small>
                             
                          </div>
                     </div>
@@ -29,8 +29,8 @@
                     <div class="form-group">
                         <label for="asprak" class="col-md-3 control-label">Selesai</label>
                          <div class="col-md-6">
-                         <input type="text" class="form-control"  value="{{ $jadwal->selesai }}" name="selesai" required>
-                             <small>contoh : 14.00</small>
+                         <input type="time" class="form-control"  value="{{ $jadwal->selesai }}" name="selesai" required>
+                             <small>contoh : 02.00 PM</small>
                          </div>
                     </div>
                     <div class="form-group">
