@@ -66,7 +66,7 @@
                             <div class="col-md-6">
                                 <select class="form-control" name="role_id" id="role_id">
                                     <option value="2">Asprak</option>
-                                    <option value="4">Mahasiswa</option>
+                                    <option value="3">Mahasiswa</option>
                                 </select>
                             </div>
                         </div>
