@@ -36,12 +36,14 @@ Route::get('/dosen/feedback', function () {
 
 
 
-// admin collections
-Route::prefix('/admin')->group(function(){
-    Route::middleware('web')->group(function(){
-        Route::get('/', function(){
+Route::group(['middleware' => 'admin'], function(){
+
+    // admin collections
+    Route::prefix('/admin')->group(function(){
+        Route::get('/', function () {
             return view('admin.home');
         });
+
         Route::get('asprak','AdminController@index_asprak')->name('asprak.index');
         Route::get('asprak/create','AdminController@create_asprak')->name('asprak.create');
         Route::post('asprak/store','AdminController@store_asprak')->name('asprak.store');
@@ -49,44 +51,43 @@ Route::prefix('/admin')->group(function(){
         Route::get('asprak/{id}','AdminController@show_asprak')->name('asprak.show');
         Route::get('asprak/{id}/delete','AdminController@delete_asprak')->name('asprak.destroy');
         Route::get('asprak/{id}/edit','AdminController@edit_asprak')->name('asprak.edit');
-
     });
 });
 
 
 
 
-// praktikan collections
-Route::prefix('praktikan')->group(function(){
-    Route::get('/', 'PraktikanController@index');
-    Route::post('join-praktikum','PraktikanController@join_praktikum');
-    Route::get('jadwal/{id_praktikum}','PraktikanController@index_jadwal');
+Route::group(['middleware' => 'praktikan'], function(){
+
+    // praktikan collections
+    Route::prefix('praktikan')->group(function(){
+        Route::get('/', 'PraktikanController@index');
+        Route::post('join-praktikum','PraktikanController@join_praktikum');
+        Route::get('jadwal/{id_praktikum}','PraktikanController@index_jadwal');
+    });
+
+    Route::get('/praktikan/profile', function () {
+        return view('praktikan/profile');
+    });
+    Route::get('/praktikan/feedback', function () {
+        return view('praktikan/feedback');
+    });
 });
-
-
-Route::get('/praktikan/profile', function () {
-    return view('praktikan/profile');
-});
-Route::get('/praktikan/feedback', function () {
-    return view('praktikan/feedback');
-});
-
-
 
 // asisten collections 
-Route::prefix('asprak')->group(function(){
-    Route::get('/', 'AsprakController@index');
-    Route::get('/praktikum/{id}', 'AsprakController@index_jadwal');
-    Route::post('/praktikum/create', 'AsprakController@create_praktikum')->name('create.praktikum');
-    Route::post('/praktikum/jadwal', 'AsprakController@store_jadwal')->name('store.jadwal');
-    Route::delete('/praktikum/jadwal/{id}', 'AsprakController@delete_jadwal')->name('delete.jadwal');
-    Route::get('/praktikum/jadwal/{id}/edit', 'AsprakController@edit_jadwal')->name('edit.jadwal');
-    Route::put('/praktikum/jadwal/{id}/update', 'AsprakController@update_jadwal')->name('update.jadwal');
+Route::group(['middleware' => 'asprak'],function(){
 
-    Route::get('/{id}/presensi','AsprakController@index_presensi');
-    Route::get('check-presensi','AsprakController@check_presensi');
-    
-    
+    Route::prefix('asprak')->group(function(){
+        Route::get('/', 'AsprakController@index');
+        Route::get('/praktikum/{id}', 'AsprakController@index_jadwal');
+        Route::post('/praktikum/create', 'AsprakController@create_praktikum')->name('create.praktikum');
+        Route::post('/praktikum/jadwal', 'AsprakController@store_jadwal')->name('store.jadwal');
+        Route::delete('/praktikum/jadwal/{id}', 'AsprakController@delete_jadwal')->name('delete.jadwal');
+        Route::get('/praktikum/jadwal/{id}/edit', 'AsprakController@edit_jadwal')->name('edit.jadwal');
+        Route::put('/praktikum/jadwal/{id}/update', 'AsprakController@update_jadwal')->name('update.jadwal');
+        Route::get('/{id}/presensi','AsprakController@index_presensi');
+        Route::get('check-presensi','AsprakController@check_presensi');
+    });
 });
 
 Auth::routes();
@@ -94,12 +95,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-// ini login
 
-Route::get('/login', function () {
-    return view('login/login');
-});
-// ini register
-Route::get('/register', function () {
-    return view('login/register');
-});

@@ -23,4 +23,22 @@ class User extends Authenticatable
     {
         return $this->hasMany(Presensi::class);
     }
+
+    public function isAdmin()
+    {
+        if($this->role_id == 1)return true;
+            return false;
+    }
+
+    public function isAsprak()
+    {
+        if($this->role_id == 2)return true;
+            return false;
+    }
+
+    public function isPraktikan()
+    {
+        if($this->role_id == 3)return true;
+            return false;
+    }
 }
