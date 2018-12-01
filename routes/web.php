@@ -24,9 +24,7 @@ Route::get('/dosen', function () {
 Route::get('/dosen/praktikum/id', function() {
     return view('dosen/praktikum');
 });
-Route::get('/dosen/profile', function () {
-    return view('dosen/profile');
-});
+
 Route::get('/dosen/presensi', function () {
     return view('dosen/presensi');
 });
@@ -88,6 +86,11 @@ Route::group(['middleware' => 'admin'], function(){
         Route::put('/praktikum/jadwal/{id}/update', 'AsprakController@update_jadwal')->name('update.jadwal');
         Route::get('/{id}/presensi','AsprakController@index_presensi');
         Route::get('check-presensi','AsprakController@check_presensi');
+        Route::get('get_feedback/{praktikum_id}/{jadwal_id}','AsprakController@get_feedback');
+
+        Route::get('profile', function () {
+            return view('asprak/profile');
+        });
         
     });
 // });

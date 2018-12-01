@@ -9,6 +9,7 @@ use App\Dosen;
 use App\User;
 use App\Presensi;
 use App\Matkul;
+use PDF;
 
 class AsprakController extends Controller
 {
@@ -25,7 +26,7 @@ class AsprakController extends Controller
     public function create_praktikum(Request $request){
             $praktikum = New Praktikum;
             $praktikum['kelas'] = $request->kelas;
-            $praktikum['created_by'] = 2;
+            $praktikum['created_by'] = 2; // $user = TODO dapatkan user aktif
             $praktikum['kode_masuk'] = \str_random(5);
 
             $matkul = Matkul::where('id',$request->matkul)->first();
@@ -51,7 +52,7 @@ class AsprakController extends Controller
         $jadwals = Jadwal::where('praktikum_id',$id)->get();
         return view('asprak/praktikum',['praktikum'=>$praktikum  , 'jadwals'=>$jadwals]);
     }
-  
+
     public function store_jadwal(Request $request)
     {
         $jadwal = Jadwal::create([
@@ -127,4 +128,13 @@ class AsprakController extends Controller
         ],200);
     }
 
+    public function get_feedback($praktikum_id,$jadwal_id)
+    {
+        $praktikum = Praktikum::find($praktikum_id);
+        $jadwal = Jadwal::find($jadwal_id);
+        $presensis =  $jadwal->presensis;
+        $pdf = PDF::loadView('asprak.feedback', compact('praktikum','presensis','jadwal'));
+        return $pdf->download($praktikum->matkul->nama.'_feedback.pdf');
+        // return view('asprak.feedback',['praktikum'=>$praktikum,'presensis'=>$presensis,'jadwal'=>$jadwal]);
+    }
 }

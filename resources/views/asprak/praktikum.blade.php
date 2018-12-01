@@ -29,9 +29,12 @@
                         </tr>
                       </thead>
                       <tbody>
+                        @php
+                            $i = 1;
+                        @endphp
                           @foreach ($jadwals as $item)
                           <tr>
-                              <td></td>
+                              <td>{{$i++}}</td>
                               <td>  {{date('j-n-Y', strtotime($item->tanggal))}}  </td>
                               <td> {{date('g : i', strtotime($item->mulai))}} </td>
                               <td> {{date('g : i', strtotime($item->selesai))}} </td>
@@ -40,7 +43,7 @@
                                   <a href="{{url('asprak/'. $item->id .'/presensi')}}">
                                     <button type="button" class="btn btn-success  btn-sm" >Presensi</button>
                                   </a>
-                                  <a href="{{url('asprak/feedback')}}">
+                                  <a href="{{url('asprak/get_feedback/'.$praktikum->id.'/'.$item->id)}}">
                                     <button type="button" class="btn btn-info  btn-sm">Feedback</button>
                                   </a>
                                   <a href="{{url('asprak/praktikum/jadwal/'.$item->id.'/edit')}}">
