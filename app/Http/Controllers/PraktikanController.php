@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Praktikum;
 use App\User;
 use App\Jadwal;
+use App\Presensi;
 
 class PraktikanController extends Controller
 {
@@ -33,5 +34,17 @@ class PraktikanController extends Controller
         $praktikum = Praktikum::findOrFail($id_praktikum);
         $jadwals = Jadwal::where('praktikum_id',$id_praktikum)->get();
         return view('praktikan.jadwal',['praktikum'=>$praktikum,'jadwals'=>$jadwals]);
+    }
+
+    public function store_feedback(Request $request)
+    {
+        $jadwal = $request->jadwal_id;
+        $user   = $request->user_id;
+        $pesan_feedback = $request->feedback;
+        $presensi = Presensi::where('jadwal_id',$jadwal)->where('user_id',$user)->first();
+        $presensi->feedback = $pesan_feedback;
+        $presensi->save();
+        return redirect()->back();
+
     }
 }

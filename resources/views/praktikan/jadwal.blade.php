@@ -39,18 +39,40 @@
                                         <td> {{date('g : i', strtotime($jadwal->selesai))}} </td>
                                         <td> {{$jadwal->materi}} </td>
                                         <td>
-                                            <button type="submit" id="" class="btn btn-sm btn-danger"><i class="fa fa-close"></i></button>
+                                            @php
+                                                $p = $jadwal->presensis->where('user_id',4)->first(); //TODO ganti user yg aktif
+                                            @endphp
+                                            
+                                            @empty($p->feedback)
+                                                @if ($p->status == 0)
+                                                    <i class="fa fa-close"></i>    
+                                                @else
+                                                {{-- TODO : ganti user yg sedang aktif --}}
+                                                    <a onclick="create_feedback({{$jadwal->id}})">  
+                                                        <button type="submit" id=""  class="btn btn-sm btn-danger"><i class="fa fa-close"></i></button>    
+                                                    </a>
+                                                @endif    
+                                                @endempty
+                                            @isset($p->feedback)
+                                                <button type="submit" id="presensi"  disabled class="btn btn-sm btn-info">  <strong><i class="fa fa-check"></i> </strong></button>
+                                            @endisset
                                         </td>
                                     </tr>
+                                    
                                 @endforeach
                         </tbody>
                     </table>
-
-                  </div>
                 </div>
-              </div>
+                </div>
             </div>
-          </div>
+            </div>
         </div>
-        
+    </div>
+    @include('praktikan/modal/feedback')
+    <script type="text/javascript">
+        function create_feedback(jadwal_id){
+            $('#modal-feedback').modal('show');
+            $('#jadwal_id').attr('value',jadwal_id);
+        }
+    </script>
 @endsection

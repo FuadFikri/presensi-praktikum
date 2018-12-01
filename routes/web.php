@@ -57,13 +57,14 @@ Route::group(['middleware' => 'admin'], function(){
 
 
 
-Route::group(['middleware' => 'praktikan'], function(){
+// Route::group(['middleware' => 'praktikan'], function(){
 
     // praktikan collections
     Route::prefix('praktikan')->group(function(){
         Route::get('/', 'PraktikanController@index');
         Route::post('join-praktikum','PraktikanController@join_praktikum');
         Route::get('jadwal/{id_praktikum}','PraktikanController@index_jadwal');
+        Route::POST('store_feedback','PraktikanController@store_feedback');
     });
 
     Route::get('/praktikan/profile', function () {
@@ -72,10 +73,10 @@ Route::group(['middleware' => 'praktikan'], function(){
     Route::get('/praktikan/feedback', function () {
         return view('praktikan/feedback');
     });
-});
+// });
 
 // asisten collections 
-Route::group(['middleware' => 'asprak'],function(){
+// Route::group(['middleware' => 'asprak'],function(){
 
     Route::prefix('asprak')->group(function(){
         Route::get('/', 'AsprakController@index');
@@ -87,8 +88,9 @@ Route::group(['middleware' => 'asprak'],function(){
         Route::put('/praktikum/jadwal/{id}/update', 'AsprakController@update_jadwal')->name('update.jadwal');
         Route::get('/{id}/presensi','AsprakController@index_presensi');
         Route::get('check-presensi','AsprakController@check_presensi');
+        
     });
-});
+// });
 
 Auth::routes();
 
