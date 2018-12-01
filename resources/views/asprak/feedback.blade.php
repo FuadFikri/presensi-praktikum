@@ -56,8 +56,8 @@
     
     <p id="tanggal">{{date('j-n-Y', strtotime($jadwal->tanggal))}}</p>
       <p id="jam">
-          {{date('H : i', strtotime($jadwal->mulai))}} -
-          {{date('H : i', strtotime($jadwal->selesai))}}
+          {{date('g : i', strtotime($jadwal->mulai))}} -
+          {{date('g : i', strtotime($jadwal->selesai))}}
       </p>
   </div>
   <div id="body">
