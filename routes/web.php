@@ -34,13 +34,11 @@ Route::get('/dosen/feedback', function () {
 
 
 
-Route::group(['middleware' => 'admin'], function(){
+// Route::group(['middleware' => 'admin'], function(){
 
     // admin collections
     Route::prefix('/admin')->group(function(){
-        Route::get('/', function () {
-            return view('admin.home');
-        });
+        Route::get('/', 'AdminController@home');
 
         Route::get('asprak','AdminController@index_asprak')->name('asprak.index');
         Route::get('asprak/create','AdminController@create_asprak')->name('asprak.create');
@@ -50,7 +48,7 @@ Route::group(['middleware' => 'admin'], function(){
         Route::get('asprak/{id}/delete','AdminController@delete_asprak')->name('asprak.destroy');
         Route::get('asprak/{id}/edit','AdminController@edit_asprak')->name('asprak.edit');
     });
-});
+// });
 
 
 

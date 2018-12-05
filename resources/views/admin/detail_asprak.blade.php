@@ -19,23 +19,31 @@
                 </div>
                   <div class="x_content">
                     <table class="table table-hover ">
-                     <tr>
-                         <td>NIM</td>
-                         <td>{{$asprak->nim}}</td>
-                     </tr>
-                     <tr>
-                        <td>Nama</td>
-                        <td>{{$asprak->nama}}</td>
-                     </tr>
-                     <tr>
-                         <td>Email</td>
-                        <td>{{$asprak->email}}</td>
-                     </tr>
-                     <tr>
-                         <td>Asisten dari</td>
-                         <td></td>
-                     </tr>
+                      <tr>
+                          <td>NIM</td>
+                          <td>{{$asprak->nim}}</td>
+                      </tr>
+                      <tr>
+                          <td>Nama</td>
+                          <td>{{$asprak->nama}}</td>
+                      </tr>
+                      <tr>
+                          <td>Email</td>
+                          <td>{{$asprak->email}}</td>
+                      </tr>
+                      <tr>
+                          <td>Asisten dari</td>
+                          <td>
+                              @foreach ($asprak->praktikums as $p)
+                                @php
+                                  $m = $p->matkul->nama;      
+                                @endphp
+                                <li>{{$m}} {{$p->kelas}}</li>
+                              @endforeach
+                          </td>
+                      </tr>
                     </table>
+                    
                     
                   </div>
                 </div>

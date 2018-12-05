@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Role;
+use App\Praktikum;
 use Illuminate\Http\Request;
 use Alert;
 use Validator;
 
 class AdminController extends Controller
 {
- /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function home()
+    {
+        $praktikums = Praktikum::all();
+        return view('admin.home',compact('praktikums'));
+    }
+ 
     public function index_asprak()
     {
         $aspraks = User::where('role_id',2)->get();
@@ -44,6 +46,7 @@ class AdminController extends Controller
     public function show_asprak($id)
     {
         $asprak = User::find($id);
+        // dd($asprak->praktikums);
         return view('admin/detail_asprak',['asprak'=>$asprak]);
     }
 
