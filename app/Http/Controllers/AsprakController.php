@@ -16,7 +16,6 @@ class AsprakController extends Controller
     public function index()
     {
         $matkuls = Matkul::all();
-        // $praktikums = Praktikum::all();
         $dosens = Dosen::All();
         $user = User::find(2); // $user = TODO dapatkan user aktif
         $praktikums = Praktikum::where('created_by',2)->get();
@@ -25,6 +24,7 @@ class AsprakController extends Controller
 
     public function create_praktikum(Request $request){
             $praktikum = New Praktikum;
+            $asprak = User::find(2); //TODO dapatkan user aktif
             $praktikum['kelas'] = $request->kelas;
             $praktikum['created_by'] = 2; // $user = TODO dapatkan user aktif
             $praktikum['kode_masuk'] = \str_random(5);
@@ -34,6 +34,9 @@ class AsprakController extends Controller
             
             $dosen = Dosen::where('id',$request->dosen)->first();
             $praktikum->dosen()->associate($dosen);
+            
+            $praktikum->save(); 
+            $praktikum->users()->attach($asprak); //asprak adalah anggota praktikum
             $praktikum->save(); 
         return redirect(url('asprak'));
     }
@@ -63,12 +66,14 @@ class AsprakController extends Controller
             'praktikum_id' => $request->praktikum_id,
         ]);
         $praktikum = Praktikum::find($request->praktikum_id);
+        // dd($praktikum->id);
         $anggota_praktikum = $praktikum->users;
         foreach($anggota_praktikum as $a)
         {
             $presensi = Presensi::create([
                 'jadwal_id' => $jadwal->id,
-                'user_id' => $a->id
+                'user_id' => $a->id,
+                'praktikum_id' => $praktikum->id
             ]);
         }
         
