@@ -4,7 +4,7 @@
     <!-- Bootstrap -->
     <script src="{{ asset('assets/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <!-- FastClick -->
-    {{-- <script src="{{ asset('assets/vendors/fastclick/lib/fastclick.js') }}"></script>
+   <script src="{{ asset('assets/vendors/fastclick/lib/fastclick.js') }}"></script>
     <!-- NProgress -->
     <script src="{{ asset('assets/vendors/nprogress/nprogress.js') }}"></script>
     <!-- Chart.js -->
@@ -16,9 +16,9 @@
     <!-- iCheck -->
     <script src="{{ asset('assets/vendors/iCheck/icheck.min.js') }}"></script>
     <!-- Skycons -->
-    <script src="{{ asset('assets/vendors/skycons/skycons.js') }}"></script> --}}
+    <script src="{{ asset('assets/vendors/skycons/skycons.js') }}"></script> 
     <!-- Flot -->
-    {{-- <script src="{{ asset('assets/vendors/Flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('assets/vendors/Flot/jquery.flot.js') }}"></script>
     <script src="{{ asset('assets/vendors/Flot/jquery.flot.pie.js') }}"></script>
     <script src="{{ asset('assets/vendors/Flot/jquery.flot.time.js') }}"></script>
     <script src="{{ asset('assets/vendors/Flot/jquery.flot.stack.js') }}"></script>
@@ -32,10 +32,12 @@
     <!-- JQVMap -->
     <script src="{{ asset('assets/vendors/jqvmap/dist/jquery.vmap.js') }}"></script>
     <script src="{{ asset('assets/vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
-    <script src="{{ asset('assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script> --}}
+    <script src="{{ asset('assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script> 
     <!-- bootstrap-daterangepicker -->
-    {{-- <script src="{{ asset('assets/vendors/moment/min/moment.min.js') }}"></script> --}}
+    <script src="{{ asset('assets/vendors/moment/min/moment.min.js') }}"></script> 
     <script src="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+
+    <script src="{{ asset('assets/vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js')}}"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('assets/js/custom.min.js') }}"></script>
