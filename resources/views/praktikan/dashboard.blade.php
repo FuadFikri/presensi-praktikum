@@ -132,6 +132,7 @@
       </div>
     </div>
 
-    @include('templates/_script')
+    
   </body>
+  @include('templates/_script')
   @endsection

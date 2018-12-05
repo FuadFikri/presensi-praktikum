@@ -33,7 +33,10 @@ class PraktikanController extends Controller
     {
         $praktikum = Praktikum::findOrFail($id_praktikum);
         $jadwals = Jadwal::where('praktikum_id',$id_praktikum)->get();
-        return view('praktikan.jadwal',['praktikum'=>$praktikum,'jadwals'=>$jadwals]);
+        $sks = $praktikum->matkul->sks;
+        $pembagi = $sks * 14;
+        
+        return view('praktikan.jadwal',['praktikum'=>$praktikum,'jadwals'=>$jadwals,'pembagi'=>$pembagi]);
     }
 
     public function store_feedback(Request $request)

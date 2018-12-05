@@ -2,13 +2,19 @@
 @section('konten')
     <div class="right_col" role="main">
         <div class="">
-
+            
             <div class="clearfix"></div>
                 <div class="row">
-    <a onclick="addPertemuan()">
-        <button class="btn btn-primary" type="button" style="float:right; margin-right:20px;"><i class="fa fa-check"></i>  Presensi</button>
-    </a>
-</div>
+                        <div class="col-xs-4">
+                            @php   //TODO 4=>ganti menjadi id user yg aktif
+                                $jumlah = count($praktikum->presensis->where('user_id',4)->where('feedback',!null))/$pembagi;
+                            @endphp
+                            <span class="chart" data-percent="{{round($jumlah,2)*100}}">
+                                <span class="percent"></span>
+                            </span>
+                            
+                        </div>
+                </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -62,6 +68,7 @@
                                 @endforeach
                         </tbody>
                     </table>
+                    
                 </div>
                 </div>
             </div>
