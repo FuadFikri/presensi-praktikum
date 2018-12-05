@@ -12,6 +12,10 @@ class Praktikum extends Model
     {
         return $this->hasMany('App\Jadwal');
     }
+    public function presensis()
+    {
+        return $this->hasMany('App\Presensi');
+    }
     
     public function dosen()
     {
