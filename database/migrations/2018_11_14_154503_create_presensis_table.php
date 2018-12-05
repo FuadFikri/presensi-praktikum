@@ -17,10 +17,12 @@ class CreatePresensisTable extends Migration
             $table->increments('id');
             $table->integer('jadwal_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->integer('praktikum_id')->unsigned();
             $table->integer('status')->default(0);
             $table->text('feedback')->nullable();
             $table->foreign('jadwal_id')->references('id')->on('jadwals')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('praktikum_id')->references('id')->on('praktikums');
 
             $table->timestamps();
         });
