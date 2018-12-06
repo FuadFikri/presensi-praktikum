@@ -84,6 +84,7 @@ Route::get('/dosen/feedback', function () {
         Route::put('/praktikum/jadwal/{id}/update', 'AsprakController@update_jadwal')->name('update.jadwal');
         Route::get('/{id}/presensi','AsprakController@index_presensi');
         Route::get('check-presensi','AsprakController@check_presensi');
+        Route::get('reset-presensi','AsprakController@reset_presensi');
         Route::get('get_feedback/{praktikum_id}/{jadwal_id}','AsprakController@get_feedback');
 
         Route::get('profile', function () {

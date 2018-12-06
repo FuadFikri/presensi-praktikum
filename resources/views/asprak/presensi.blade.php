@@ -75,8 +75,11 @@
                         
                       </tbody>
                     </table>
-
-                    <input type="submit" value="simpan" class="btn btn-success pull-right">
+                  <form action="{{ url('asprak/reset-presensi') }}" method="get">
+                    {{csrf_field()}}
+                    <input type="hidden" name="jadwal_id" value="{{ $jadwal->id }}">
+                    <input type="submit" value="Reset" class="btn btn-success pull-right">
+                  </form>
                   </div>
                 </div>
               </div>

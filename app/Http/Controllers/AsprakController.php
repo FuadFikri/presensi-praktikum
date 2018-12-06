@@ -133,6 +133,17 @@ class AsprakController extends Controller
         ],200);
     }
 
+    public function reset_presensi()
+    {
+        $jadwal_id = $_GET['jadwal_id'];
+        $presensis = Presensi::where('jadwal_id',$jadwal_id)->get();
+        foreach ($presensis as $p) {
+            $p->status = 0;
+            $p->save();
+        }
+        dd($presensis);
+    }
+
     public function get_feedback($praktikum_id,$jadwal_id)
     {
         $praktikum = Praktikum::find($praktikum_id);
