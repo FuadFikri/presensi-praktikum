@@ -36,8 +36,8 @@ class AsprakController extends Controller
             $praktikum->dosen()->associate($dosen);
             
             $praktikum->save(); 
-            $praktikum->users()->attach($asprak); //asprak adalah anggota praktikum
-            $praktikum->save(); 
+            // $praktikum->users()->attach($asprak); //asprak adalah anggota praktikum
+            // $praktikum->save(); 
         return redirect(url('asprak'));
     }
 
@@ -112,6 +112,7 @@ class AsprakController extends Controller
         $praktikum_id = $jadwal->praktikum_id;
         $praktikum = Praktikum::where('id',$praktikum_id)->first();
         $anggota_praktikum = $praktikum->users;
+        // dd($anggota_praktikum);
         $presensi = Presensi::where('jadwal_id',$jadwal->id)->get();
         
         return view('asprak/presensi',['praktikans' => $anggota_praktikum,'jadwal'=>$jadwal,'presensi'=>$presensi]);

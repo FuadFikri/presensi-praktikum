@@ -34,12 +34,14 @@
                       <tr>
                           <td>Asisten dari</td>
                           <td>
-                              @foreach ($asprak->praktikums as $p)
-                                @php
-                                  $m = $p->matkul->nama;      
-                                @endphp
-                                <li>{{$m}} {{$p->kelas}}</li>
-                              @endforeach
+                            @php
+                                $praktikums = App\Praktikum::where('created_by',2)->get();
+                            @endphp
+                            @foreach ($praktikums as $p)
+                                <li>
+                                    {{ $p->matkul->nama}}  {{$p->kelas}}
+                                </li>
+                            @endforeach
                           </td>
                       </tr>
                     </table>
