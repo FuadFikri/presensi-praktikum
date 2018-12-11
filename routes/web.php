@@ -47,6 +47,16 @@ Route::get('/dosen/feedback', function () {
         Route::get('asprak/{id}','AdminController@show_asprak')->name('asprak.show');
         Route::get('asprak/{id}/delete','AdminController@delete_asprak')->name('asprak.destroy');
         Route::get('asprak/{id}/edit','AdminController@edit_asprak')->name('asprak.edit');
+
+    //dosen
+
+        Route::get('dosen','DosenController@index')->name('index');
+        Route::get('dosen/create','DosenController@create_dosen')->name('dosen.create');
+        Route::post('dosen/store','DosenController@store_dosen')->name('dosen.store');
+        Route::put('dosen/{dosen}','DosenController@update_dosen')->name('dosen.update');
+        Route::get('dosen/{id}','DosenController@show_dosen')->name('dosen.show');
+        Route::get('dosen/{id}/delete','DosenController@delete_dosen')->name('dosen.destroy');
+        Route::get('dosen/{id}/edit','DosenController@edit_dosen')->name('dosen.edit');
     });
 // });
 

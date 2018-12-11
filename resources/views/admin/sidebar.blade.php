@@ -4,6 +4,8 @@
                   <li><a href="{{ url('/admin') }}"><i class="fa fa-home"></i> Home</a></li>
                 <li><a href="{{ url('/admin/asprak') }}"><i class="fa fa-male"></i> Data Asprak</a></li>
 
+                <li><a href="{{ url('/admin/dosen') }}"><i class="fa fa-male"></i> Data Dosen</a></li>
+
                 </ul>
               </div>
               <div class="menu_section">
