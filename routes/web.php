@@ -48,10 +48,9 @@ Route::get('/dosen/feedback', function () {
         Route::get('asprak/{id}/delete','AdminController@delete_asprak')->name('asprak.destroy');
         Route::get('asprak/{id}/edit','AdminController@edit_asprak')->name('asprak.edit');
 
-<<<<<<< HEAD
         //matkul
 
-         Route::get('matkul','MatkulController@index_matkul')-> name('index.matkul');
+        Route::get('matkul','MatkulController@index_matkul')-> name('index.matkul');
         Route::get('matkul/create','MatkulController@create_matkul')->name('create.matkul');
         Route::post('matkul/store','MatkulController@store_matkul')->name('store.matkul');
         Route::put('matkul/{matkul}','MatkulController@update_matkul')->name('update.matkul');
@@ -59,7 +58,6 @@ Route::get('/dosen/feedback', function () {
         Route::get('matkul/{id}/delete','MatkulController@delete_matkul')->name('delete.matkul');
         Route::get('matkul/{id}/edit','MatkulController@edit_matkul')->name('edit.matkul');
 
-=======
     //dosen
 
         Route::get('dosen','DosenController@index')->name('index');
@@ -69,7 +67,6 @@ Route::get('/dosen/feedback', function () {
         Route::get('dosen/{id}','DosenController@show_dosen')->name('dosen.show');
         Route::get('dosen/{id}/delete','DosenController@delete_dosen')->name('dosen.destroy');
         Route::get('dosen/{id}/edit','DosenController@edit_dosen')->name('dosen.edit');
->>>>>>> e2fcad0d3e8fdfa5a89a941fb73cf354b3f686d9
     });
 // });
 
