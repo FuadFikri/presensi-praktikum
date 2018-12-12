@@ -18,7 +18,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>Fuad Fikri</h2>
+                <h2>{{Auth()->user()->nama}}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -44,12 +44,17 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Fuad Fikri
+                    <img src="images/img.jpg" alt="">{{Auth()->user()->nama}}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Edit Profile</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="{{route('praktikan.profile')}}"> Edit Profile</a></li>
+                    <li>
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out pull-right"></i> {{ __('Logout') }}</a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                      </form>
+                    </li>
                   </ul>
                 </li>
 

@@ -23,7 +23,7 @@
                           <img class="img-responsive avatar-view" src="{{ asset('assets/images/mamas.jpg') }}" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-                      <h3>Steven</h3>
+                      <!-- <h3>Steven</h3>
 
                       <ul class="list-unstyled user_data">
                         <li><i class="fa fa-map-marker user-profile-icon"></i>  Lor
@@ -37,7 +37,7 @@
                           <i class="fa fa-external-link user-profile-icon"></i>
                           <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
                         </li>
-                      </ul>
+                      </ul> -->
 
 
                       <br />
@@ -61,19 +61,19 @@
                       <tbody>
                         <tr>
                           <th scope="row">NIM</th>
-                          <td>18/417346/SV/14045</td>
+                          <td>{{Auth()->user()->nim}}</td>
                         </tr>
                         <tr>
                           <th scope="row">Nama</th>
-                          <td>Jarwo</td>
+                          <td>{{Auth()->user()->nama}}</td>
                         </tr>
-                         <tr>
+                         <!-- <tr>
                           <th scope="row">Tanggal Lahir</th>
                           <td>2016</td>
-                        </tr>
+                        </tr> -->
                          <tr>
                           <th scope="row">HP</th>
-                          <td>087678543123</td>
+                          <td>{{Auth()->user()->hp}}</td>
                         </tr>
 
                       </tbody>
