@@ -30,12 +30,10 @@ class LoginController extends Controller
         }elseif($user->isAsprak()){
 
             return redirect()->route('asprak.home');
-            
+
         }else{
             return redirect()->route('praktikan.home');
-        }
-
-        
+        }      
     }
 
     public function __construct()

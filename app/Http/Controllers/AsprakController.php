@@ -167,10 +167,18 @@ class AsprakController extends Controller
 
     public function profile()
     {
-        return view('asprak.profile');
+        $data['user'] = User::where('id',Auth()->user()->id)->first();
+        return view('asprak.profile',$data);
     }
-    public function edit_profile()
+    
+    public function editprofile(Request $request,$id)
     {
-        
+        $user = User::find($id);
+
+        $user->nama = $request->name;
+        $user->nim  = $request->nim;
+        $user->hp = $request->hp;
+        $user->update();
+        return redirect()->back();
     }
 }

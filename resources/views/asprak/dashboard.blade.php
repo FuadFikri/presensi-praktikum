@@ -6,7 +6,7 @@
         <div class="col-md-3 left_col" style="background: #2E8B57"><!-- edit warna -->
           <div class="left_col scroll-view" style="background: #2E8B57" ><!-- edit warna -->
             <div class="navbar nav_title" style="border: 0; background:#2E8B57"><!-- edit warna -->
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Dashboard Asprak</span></a>
+              <a href="{{route('asprak.home')}}" class="site_title"><i class="fa fa-paw"></i> <span>Dashboard Asprak</span></a>
             </div>
 
             <div class="clearfix"></div>

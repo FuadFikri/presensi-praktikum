@@ -109,6 +109,7 @@ Route::get('/dosen/feedback', function () {
         Route::get('send_feedback/{praktikum_id}/{jadwal_id}','AsprakController@email');
 
         Route::get('/profile', 'AsprakController@profile')->name('asprak.profile');
+        Route::put('/profile/{id}', 'AsprakController@editprofile')->name('asprak.editprofile');
 
         
         Route::post('/sendEmail', 'EmailController@sendEmail');
