@@ -3,6 +3,7 @@
                 <ul class="nav side-menu">
                   <li><a href="{{ url('/admin') }}"><i class="fa fa-home"></i> Home</a></li>
                 <li><a href="{{ url('/admin/asprak') }}"><i class="fa fa-male"></i> Data Asprak</a></li>
+                <li><a href="{{ url('/admin/matkul') }}"><i class="fa fa-male"></i> Data Mata Kuliah</a></li>
 
                 </ul>
               </div>

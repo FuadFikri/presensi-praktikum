@@ -47,6 +47,17 @@ Route::get('/dosen/feedback', function () {
         Route::get('asprak/{id}','AdminController@show_asprak')->name('asprak.show');
         Route::get('asprak/{id}/delete','AdminController@delete_asprak')->name('asprak.destroy');
         Route::get('asprak/{id}/edit','AdminController@edit_asprak')->name('asprak.edit');
+
+        //matkul
+
+         Route::get('matkul','MatkulController@index_matkul')-> name('index.matkul');
+        Route::get('matkul/create','MatkulController@create_matkul')->name('create.matkul');
+        Route::post('matkul/store','MatkulController@store_matkul')->name('store.matkul');
+        Route::put('matkul/{matkul}','MatkulController@update_matkul')->name('update.matkul');
+        Route::get('matkul/{id}','MatkulController@show_matkul')->name('show.matkul');
+        Route::get('matkul/{id}/delete','MatkulController@delete_matkul')->name('delete.matkul');
+        Route::get('matkul/{id}/edit','MatkulController@edit_matkul')->name('edit.matkul');
+
     });
 // });
 
@@ -97,6 +108,11 @@ Route::get('/dosen/feedback', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
 
 
 
