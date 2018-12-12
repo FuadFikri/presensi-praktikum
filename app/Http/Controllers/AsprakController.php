@@ -11,15 +11,16 @@ use App\Presensi;
 use App\Matkul;
 use PDF;
 
+
 class AsprakController extends Controller
 {
     public function index()
     {
         $matkuls = Matkul::all();
         $dosens = Dosen::All();
-        $user = User::find(2); // $user = TODO dapatkan user aktif
+        $user = User::find(Auth()->user()->nama); // $user = TODO dapatkan user aktif
         $praktikums = Praktikum::where('created_by',2)->get();
-        return view('asprak.home', ['praktikums'=>$praktikums, 'dosens'=>$dosens,'matkuls'=>$matkuls]);
+        return view('asprak.home', ['praktikums'=>$praktikums, 'dosens'=>$dosens,'matkuls'=>$matkuls,'user'=>$user]);
     }
 
     public function create_praktikum(Request $request){
@@ -162,5 +163,14 @@ class AsprakController extends Controller
         $jadwal = Jadwal::find($jadwal_id);
         $presensis =  $jadwal->presensis;
         return view('asprak.send_email',compact('praktikum','presensis','jadwal'));
+    }
+
+    public function profile()
+    {
+        return view('asprak.profile');
+    }
+    public function edit_profile()
+    {
+        
     }
 }

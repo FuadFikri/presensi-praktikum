@@ -12,7 +12,7 @@
 */
 // sebelum login
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 
@@ -34,11 +34,11 @@ Route::get('/dosen/feedback', function () {
 
 
 
-// Route::group(['middleware' => 'admin'], function(){
+ Route::group(['middleware' => 'admin'], function(){
 
     // admin collections
     Route::prefix('/admin')->group(function(){
-        Route::get('/', 'AdminController@home');
+        Route::get('/', 'AdminController@home')->name('admin.home');
 
         Route::get('asprak','AdminController@index_asprak')->name('asprak.index');
         Route::get('asprak/create','AdminController@create_asprak')->name('asprak.create');
@@ -68,16 +68,16 @@ Route::get('/dosen/feedback', function () {
         Route::get('dosen/{id}/delete','DosenController@delete_dosen')->name('dosen.destroy');
         Route::get('dosen/{id}/edit','DosenController@edit_dosen')->name('dosen.edit');
     });
-// });
+ });
 
 
 
 
-// Route::group(['middleware' => 'praktikan'], function(){
+ Route::group(['middleware' => 'praktikan'], function(){
 
     // praktikan collections
     Route::prefix('praktikan')->group(function(){
-        Route::get('/', 'PraktikanController@index');
+        Route::get('/', 'PraktikanController@index')->name('praktikan.home');
         Route::post('join-praktikum','PraktikanController@join_praktikum');
         Route::get('jadwal/{id_praktikum}','PraktikanController@index_jadwal');
         Route::POST('store_feedback','PraktikanController@store_feedback');
@@ -89,13 +89,13 @@ Route::get('/dosen/feedback', function () {
     Route::get('/praktikan/feedback', function () {
         return view('praktikan/feedback');
     });
-// });
+ });
 
 // asisten collections 
-// Route::group(['middleware' => 'asprak'],function(){
+ Route::group(['middleware' => 'asprak'],function(){
 
     Route::prefix('asprak')->group(function(){
-        Route::get('/', 'AsprakController@index');
+        Route::get('/', 'AsprakController@index')->name('asprak.home');
         Route::get('/praktikum/{id}', 'AsprakController@index_jadwal');
         Route::post('/praktikum/create', 'AsprakController@create_praktikum')->name('create.praktikum');
         Route::post('/praktikum/jadwal', 'AsprakController@store_jadwal')->name('store.jadwal');
@@ -108,14 +108,13 @@ Route::get('/dosen/feedback', function () {
         Route::get('get_feedback/{praktikum_id}/{jadwal_id}','AsprakController@get_feedback');
         Route::get('send_feedback/{praktikum_id}/{jadwal_id}','AsprakController@email');
 
-        Route::get('profile', function () {
-            return view('asprak/profile');
-        });
+        Route::get('/profile', 'AsprakController@profile')->name('asprak.profile');
+
         
         Route::post('/sendEmail', 'EmailController@sendEmail');
         
     });
-// });
+ });
 
 Auth::routes();
 
