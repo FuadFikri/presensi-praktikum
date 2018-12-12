@@ -140,9 +140,10 @@ class AsprakController extends Controller
         $presensis = Presensi::where('jadwal_id',$jadwal_id)->get();
         foreach ($presensis as $p) {
             $p->status = 0;
+            $p->feedback=null;
             $p->save();
         }
-        dd($presensis);
+        return redirect(url('asprak/'.$jadwal_id.'/presensi'));
     }
 
     public function get_feedback($praktikum_id,$jadwal_id)
