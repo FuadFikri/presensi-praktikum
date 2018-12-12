@@ -155,4 +155,12 @@ class AsprakController extends Controller
         return $pdf->download($praktikum->matkul->nama.'_feedback.pdf');
         // return view('asprak.feedback',['praktikum'=>$praktikum,'presensis'=>$presensis,'jadwal'=>$jadwal]);
     }
+
+    public function email($praktikum_id,$jadwal_id)
+    {
+        $praktikum = Praktikum::find($praktikum_id);
+        $jadwal = Jadwal::find($jadwal_id);
+        $presensis =  $jadwal->presensis;
+        return view('asprak.send_email',compact('praktikum','presensis','jadwal'));
+    }
 }
