@@ -106,10 +106,13 @@ Route::get('/dosen/feedback', function () {
         Route::get('check-presensi','AsprakController@check_presensi');
         Route::get('reset-presensi','AsprakController@reset_presensi');
         Route::get('get_feedback/{praktikum_id}/{jadwal_id}','AsprakController@get_feedback');
+        Route::get('send_feedback/{praktikum_id}/{jadwal_id}','AsprakController@email');
 
         Route::get('profile', function () {
             return view('asprak/profile');
         });
+        
+        Route::post('/sendEmail', 'EmailController@sendEmail');
         
     });
 // });

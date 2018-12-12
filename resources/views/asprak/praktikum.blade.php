@@ -46,6 +46,9 @@
                                   <a href="{{url('asprak/get_feedback/'.$praktikum->id.'/'.$item->id)}}">
                                     <button type="button" class="btn btn-info  btn-sm">Feedback</button>
                                   </a>
+                                  <a href="{{url('asprak/send_feedback/'.$praktikum->id.'/'.$item->id)}}">
+                                    <button type="button" class="btn btn-primary  btn-sm">Kirim Feedback</button>
+                                  </a>
                                   <a href="{{url('asprak/praktikum/jadwal/'.$item->id.'/edit')}}">
                                     <button type="button" class="btn btn-warning  btn-sm">Edit</button>
                                   </a>
