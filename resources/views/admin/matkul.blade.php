@@ -34,7 +34,7 @@
                         @endphp
                         @foreach ($matkuls as $matkul)
                           <tr>
-                          <td>{{$i++}}</td>
+                          
                             <td>{{$matkul->id}}</td>
                             <td>{{$matkul->nama}}</td>
                             <td>{{$matkul->kode_vmk}}</td>
