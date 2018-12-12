@@ -23,7 +23,7 @@
                           <img class="img-responsive avatar-view" src="{{ asset('assets/images/picture.jpg') }}" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-                      <h3>Samuel Doe</h3>
+                      <!-- <h3>Samuel Doe</h3>
 
                       <ul class="list-unstyled user_data">
                         <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
@@ -37,7 +37,7 @@
                           <i class="fa fa-external-link user-profile-icon"></i>
                           <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
                         </li>
-                      </ul>
+                      </ul> -->
 
 
                       <br />
@@ -60,20 +60,20 @@
                     <table class="table table-striped">
                       <tbody>
                         <tr>
-                          <th scope="row">NIP</th>
-                          <td>18/8282/re/112</td>
+                          <th scope="row">Nim</th>
+                          <td>{{$user->nim}}</td>
                         </tr>
                         <tr>
                           <th scope="row">Nama</th>
-                          <td>Jonwo</td>
+                          <td>{{$user->nama}}</td>
                         </tr>
-                         <tr>
+                         <!-- <tr>
                           <th scope="row">Tanggal Lahir</th>
                           <td>2016</td>
-                        </tr>
+                        </tr> -->
                          <tr>
                           <th scope="row">HP</th>
-                          <td>089898189</td>
+                          <td>{{$user->hp}}</td>
                         </tr>
 
                       </tbody>
