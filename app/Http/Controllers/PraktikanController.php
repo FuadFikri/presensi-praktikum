@@ -50,4 +50,21 @@ class PraktikanController extends Controller
         return redirect()->back();
 
     }
+
+    public function profile()
+    {
+        $data['user'] = User::where('id',Auth()->user()->id)->first();
+        return view('praktikan.profile',$data);
+    }
+    
+    public function editprofile(Request $request,$id)
+    {
+        $user = User::find($id);
+
+        $user->nama = $request->name;
+        $user->nim  = $request->nim;
+        $user->hp = $request->hp;
+        $user->update();
+        return redirect()->back();
+    }
 }

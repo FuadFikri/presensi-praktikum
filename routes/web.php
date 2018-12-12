@@ -81,11 +81,13 @@ Route::get('/dosen/feedback', function () {
         Route::post('join-praktikum','PraktikanController@join_praktikum');
         Route::get('jadwal/{id_praktikum}','PraktikanController@index_jadwal');
         Route::POST('store_feedback','PraktikanController@store_feedback');
+
+        Route::get('/profile', 'PraktikanController@profile')->name('praktikan.profile');
+        Route::put('/profile/{id}', 'PraktikanController@editprofile')->name('praktikan.editprofile');
+    
     });
 
-    Route::get('/praktikan/profile', function () {
-        return view('praktikan/profile');
-    });
+   
     Route::get('/praktikan/feedback', function () {
         return view('praktikan/feedback');
     });
