@@ -7,7 +7,7 @@
                 <div class="row">
                         <div class="col-xs-4">
                             @php   //TODO 4=>ganti menjadi id user yg aktif
-                                $jumlah = count($praktikum->presensis->where('user_id',4)->where('feedback',!null))/$pembagi;
+                                $jumlah = count($praktikum->presensis->where('user_id',Auth()->user()->id)->where('feedback',!null))/$pembagi;
                             @endphp
                             <span class="chart" data-percent="{{round($jumlah,2)*100}}">
                                 <span class="percent"></span>
@@ -46,7 +46,7 @@
                                         <td> {{$jadwal->materi}} </td>
                                         <td>
                                             @php
-                                                $p = $jadwal->presensis->where('user_id',4)->first(); //TODO ganti user yg aktif
+                                                $p = $jadwal->presensis->where('user_id',Auth()->user()->id)->first(); //TODO ganti user yg aktif
                                             @endphp
                                             
                                             @empty($p->feedback)

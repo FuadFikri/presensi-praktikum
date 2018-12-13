@@ -25,7 +25,7 @@ class AsprakController extends Controller
 
     public function create_praktikum(Request $request){
             $praktikum = New Praktikum;
-            $asprak = User::find(2); //TODO dapatkan user aktif
+            $asprak = User::find(Auth()->user()->id); //TODO dapatkan user aktif
             $praktikum['kelas'] = $request->kelas;
             $praktikum['created_by'] = 2; // $user = TODO dapatkan user aktif
             $praktikum['kode_masuk'] = \str_random(5);
