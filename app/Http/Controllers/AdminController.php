@@ -81,20 +81,6 @@ class AdminController extends Controller
         return redirect('admin/asprak');
     }
 
-    // ============= CRUD Data master Dosen ====================//
-    // nama model = Dosen
-    
-    
-    
-    
-    
-    
-    // ============= CRUD Data master Matkul ====================//
-    // nama model = Matkul
-
-
-
-
 
 }
 
