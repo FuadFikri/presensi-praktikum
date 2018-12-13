@@ -12,7 +12,7 @@ class PraktikanController extends Controller
 {
     public function index()
     {
-        $user = User::find(4); // $user = TODO dapatkan user aktif
+        $user = User::find(Auth()->user()->id); // $user = TODO dapatkan user aktif
         $praktikums = $user->praktikums;
         return view('praktikan.home',['praktikums'=>$praktikums]);
     }
@@ -24,7 +24,7 @@ class PraktikanController extends Controller
         }
         
         // $user = TODO dapatkan user aktif
-        $user = User::find(4);
+        $user = User::find(Auth()->user()->id);
         $user->praktikums()->attach($praktikum);
         return redirect(url('/praktikan'));
     }

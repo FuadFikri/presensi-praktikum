@@ -14,7 +14,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <input type="hidden" id="jadwal_id" name="jadwal_id" value="">
-                            <input type="hidden" name="user_id" value="4"> 
+                            <input type="hidden" name="user_id" value="{{Auth()->user()->id}}"> 
                             {{-- TODO : user yg aktif --}}
                             <textarea class="form-control" name="feedback" id="feedback" cols="10" rows="10" placeholder="Bagaimana Praktikum Hari Ini"></textarea>
                         </div>
