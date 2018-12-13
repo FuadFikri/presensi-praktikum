@@ -18,7 +18,7 @@ class AsprakController extends Controller
     {
         $matkuls = Matkul::all();
         $dosens = Dosen::All();
-        $user = User::find(Auth()->user()->nama); // $user = TODO dapatkan user aktif
+        $user = User::find(Auth()->user()->id); // $user = TODO dapatkan user aktif
         $praktikums = Praktikum::where('created_by',2)->get();
         return view('asprak.home', ['praktikums'=>$praktikums, 'dosens'=>$dosens,'matkuls'=>$matkuls,'user'=>$user]);
     }
