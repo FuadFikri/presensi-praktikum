@@ -1,14 +1,43 @@
-# presensi-praktikum
-# presensi-praktikum
-1. git clone
-2. composer install / composer update
-3. buat database sesuai nama db di file env
-4. php artisan migrate ->untuk generate tabel
-5. php artisan db:seed ->untuk generate data didalam tabel role
-6. php artisan serve
-yang sudah
-1. halaman dosen
-2. halaman admin
-3. CRUD di halaman admin untuk membuat akun asprak
-localhost:8000/admin
-localhost:8000/dosen
+# Sistem Presensi dan Feedback Praktikum
+
+
+```sh
+
+Demo : proyek3.herokuapp.com
+
+```
+##Tech
+- Laravel
+- Bootstrap
+- gentelella alela template
+- AJAX
+- MySQL
+
+
+
+##Fitur
+1. Admin
+
+    - Masuk ke sistem melalui login.
+    - Melihat daftar praktikum.
+    - Mengelola data akun asprak maupun praktikan.
+    - Mengelola data dosen.
+    - Mengelola data mata kuliah.
+    - Membuat akun untuk asprak.
+    
+2. Asprak(Asisten Praktikum)
+    - Login menggunakan akun yang dibuatkan oleh admin.
+    - Membuat praktikum.
+    - Membuat, menyunting, dan menghapus pertemuan.
+    - Memberikan presensi kehadiran untuk praktikan.
+    - Mengunduh feedback oleh praktikan.
+    - Mengirim email melalui sistem.
+    - Menyunting profil.
+    
+3. Praktikan
+    - Melakukan pendaftaran.
+    - Login.
+    - Bergabung dengan praktikum menggunakan kode masuk.
+    - Memberikan feedback setelah dinyatakan masuk oleh asprak melalui sistem.
+    - Melihat presentase kehadiran.
+    - Menyunting profil.
