@@ -6,7 +6,7 @@
 Demo : proyek3.herokuapp.com
 
 ```
-##Tech
+## Tech
 - Laravel
 - Bootstrap
 - gentelella alela template
@@ -15,7 +15,7 @@ Demo : proyek3.herokuapp.com
 
 
 
-##Fitur
+## Fitur
 1. Admin
 
     - Masuk ke sistem melalui login.
